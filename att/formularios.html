@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <p><a href="../index.html">voltar</a></p>
+    <h1>Formularios</h1>
+
+    <form>
+        <label for="texto">Texto</label>
+        <br>
+        <textarea name="texto" id="texto" placeholder="Digite algum texto"></textarea>
+        <br>
+        <label for="profissao">Profissão</label>
+        <br>
+        <select name="profissao" id="profissao">
+            <option value="Desenvolvedor">Desenvolvedor</option>
+            <option value="Programador">Programador</option>
+            <option value="RH">RH</option>
+            <option value="Professor">Professor</option>
+            <option value="Contador">Contador</option>
+        </select>
+        <br>
+        <label>
+            <p>Nome</p>
+            <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+        </label>
+        <br>
+        <label>
+            <p>Email</p>
+            <input type="email" name="email" id="email" placeholder="Digite seu email">
+        </label>
+        <br>
+        <label>
+            <p>Senha</p>
+            <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+        </label>
+        <br>
+        <label>
+            <p>Cor</p>
+            <input type="color" name="color" id="cor">
+        </label>
+        <br>
+        <label>
+            <p>Data</p>
+            <input type="date" name="date" id="data">
+        </label>
+        <br>
+        <label>
+            <p>Hora</p>
+            <input type="time" name="time" id="hora">
+        </label>
+        <br>
+        <label>
+            <p>Data e Hora</p>
+            <input type="datetime-local" name="datetime" id="data-hora">
+        </label>
+        <br>
+        <label>
+            <p>Mês</p>
+            <input type="month" name="month" id="mes">
+        </label>
+        <br>
+        <label>
+            <p>Número</p>
+            <input type="number" name="number" id="numero" placeholder="Digite um número">
+        </label>
+        <br>
+        <label>
+            <p>de 0 até 4</p>
+            <input type="range" name="range" id="range" min="0" max="4">
+        </label>
+        <br>
+        <label>
+            <p>Busca</p>
+            <input type="search" name="search" id="busca" placeholder="Digite algo para buscar">
+        </label>
+        <br>
+        <label>
+            <p>Telefone</p>
+            <input type="tel" name="tel" id="telefone" placeholder="Digite seu telefone">
+        </label>
+        <br>
+        <label>
+            <p>URL</p>
+            <input type="url" name="url" id="url" placeholder="Digite uma URL">
+        </label>
+        <br>
+        <label>
+            <p>Semana</p>
+            <input type="week" name="week" id="semana">
+        </label>
+        <br>
+        <input type="hidden" name="hidden" id="escondido" value="escondido">
+        <br>
+        <label>
+            <input type="radio" name="area" id="radio" value="masculino">
+            <span>Masculino</span>
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="area" id="radio" value="feminino">
+            <span>Feminino</span>
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="area" id="radio" value="outro">
+            <span>Outro</span>
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="estilo-musical" id="estilo-musical" value="rock">
+            <span>Rock</span>
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="estilo-musical" id="estilo-musical" value="pop">
+            <span>Pop</span>
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="estilo-musical" id="estilo-musical" value="rap">
+            <span>Rap</span>
+        </label>
+        <br>
+        <label>
+            <p>escolha um arquivo</p>
+            <input type="file" name="arquivo" id="arquivo">
+        </label>
+
+        <button type="button">Button</button>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>
