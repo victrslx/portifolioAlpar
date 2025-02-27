@@ -239,7 +239,8 @@ h1 {
 }
 
 .description-card {
-    text-align: justify;
+    text-align: left;
+    line-height: 1.6;
 }
 
 .expertise-card h3 u {
