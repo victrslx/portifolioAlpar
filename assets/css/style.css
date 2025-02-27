@@ -15,30 +15,37 @@ body {
 
 /* primeira */
 .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     width: 100%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 10px 20px;
     background: #ffffff;
-    text-align: center;
     box-shadow: 0 7px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
+.container-inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 3%;
+}
 
 .site-header-nav ul {
     list-style: none;
-    padding: 0;
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .site-header-nav ul li {
-    display: inline;
     margin-right: 20px;
 }
 
@@ -47,6 +54,7 @@ body {
     text-decoration: none;
     color: #000000;
 }
+
 
 .site-header-nav ul li a.active {
     color: #6a5acd;
@@ -78,8 +86,8 @@ body {
 
 .container-inner {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 0 0;
+    justify-content: center;
     padding: 0;
 }
 
