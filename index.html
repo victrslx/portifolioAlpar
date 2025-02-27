@@ -1,60 +1,199 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
-    <title>Sobre mim</title>
+    <title>Portifolio</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <img style="width: 20%; height: 50%;" src="./assets/images/eu.jpeg" alt="gatinho">
-    <h1>Olá, Sou o joão</h1>
-    <h2>sou desenvolvedor</h2>
-    <p>Gosto de explorar <strong>novas tecnologias</strong> e <i>desenvolver soluções de software.</i> <br />
-        meu objetivo é <u>facilitar a vida de todos</u>
-    </p>
+    <header class="site-header">
+        <div class="container-inner">
+            <nav class="site-header-nav">
+                <ul role="list" class="flex flex-center">
+                    <li>
+                        <a href="#home" class="active">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#works">Projetos</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contato</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Lições <span
+                                style="font-size: small;">&#9660</span></a>
+                        <div class="dropdown-content">
+                            <a href="./att/lists.html">Listas</a>
+                            <a href="./att/tabelas.html">Tabelas</a>
+                            <a href="./att/table-layout.html">Table leyout</a>
+                            <a href="./att/formularios.html">Forms</a>
+                            <a href="./att/media.html">Mídia</a>
+                            <a href="./att/divs.html">Divs</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <a href="https://www.linkedin.com/in/jo%C3%A3o-victor-42931a219/">Meu Linkedin</a>
-    <p></p>
-    <h2>desafios</h2>
-    <ol>
-        <li><a href="./cafeteria/menu-cafeteria.html">menu cafeteria</a></li>
-        <li><a href="./alpar-table/site-empresa.html">site de uma empresa</a></li>
-        <li><a href="./podcast/index.html">Podcast</a></li>
-        <li><a href="./blog/blog.html">blog</a></li>
-    </ol>
-    <p></p>
-    <h2>lições</h2>
-    <ol>
-        <li><a href="./att/lists.html">listas</a></li>
-        <li><a href="./att/tabelas.html">tabelas</a></li>
-        <li><a href="./att/table-layout.html">table-layout</a></li>
-        <li><a href="./att/formularios.html">formularios</a></li>
-        <li><a href="./att/media.html">media</a></li>
-        <li><a href="./att/divs.html">divs</a></li>
-    </ol>
+    <main id="home">
+        <section class="profile-container">
+            <aside class="text-content">
+                <p class="my-name">Olá, sou o João! 👋</p>
+                <h1>Sou <span class="highlight">desenvolvedor</span> apaixonado por <u>tecnologia e inovação.</u>🚀
+                </h1>
+                <p class="description">Desde cedo, sempre fui fascinado por criar soluções que impactam o dia a dia das
+                    pessoas. Atualmente, estudo Sistemas de Informação na FIAP e busco aprimorar minhas habilidades em
+                    desenvolvimento de software. Tenho experiência em ASP.NET, React Native, JavaScript e bancos de
+                    dados. Além disso, estou me aprofundando em ServiceNow para expandir minhas possibilidades no
+                    mercado de tecnologia.</p>
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-victor-42931a219/"><button class="cta-button">Linked
+                        <strong>In</strong></button></a>
+            </aside>
+            <aside class="image-content">
+                <div class="image-box">
+                    <img src="./assets/images/eu.jpeg" alt="Profile Picture">
+                </div>
+            </aside>
+        </section>
+        <section id="works" class="expertise">
+            <div class="container">
+                <h2 class="section-title">Projetos/Desafios</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card" data-url="./cafeteria/menu-cafeteria.html">
+                        <h3><u>Cafeteria</u></h3>
+                        <img src="assets/images/cafeteria-dev.jpg" alt="logo">
+                        <p class="description-card">
+                            -📜<strong>Menu da cafeteria</strong> com os itens disponíveis e seus preços. <br>
+                            -🕒<strong>Horário de funcionamento</strong> exibido em uma tabela. <br>
+                            -📞<strong>Formulário de contato</strong> para que clientes possam enviar mensagens. </p>
+                    </div>
+                    <div class="expertise-card" data-url="./alpar-table/site-empresa.html">
+                        <h3><u>Site de uma empresa</u></h3>
+                        <img src="assets/images/cafeteria-dev.jpg" alt="logo">
+                        <p class="description-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros
+                            elementum tristique.</p>
+                    </div>
+                    <div class="expertise-card" data-url="./podcast/index.html">
+                        <h3><u>Podcast</u></h3>
+                        <img src="assets/images/cafeteria-dev.jpg" alt="logo">
 
-    <form>
-        <h2>Contato</h2>
-        <label>
-            <p>Email</p>
-            <input type="email" name="email" id="email" placeholder="Digite seu email">
-        </label>
-        <br>
-        <label>
-            <p>Assunto</p>
-            <input type="text" name="assunto" id="assunto" placeholder="Digite o assunto">
-        </label>
-        <br>
-        <label>
-            <p>Mensagem</p>
-            <textarea name="mensagem" id="mensagem" placeholder="Digite sua mensagem"></textarea>
-        </label>
-    </form>
+                        <p class="description-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros
+                            elementum tristique.</p>
+                    </div>
+                    <div class="expertise-card" data-url="./blog/blog.html">
+                        <h3><u>Blog</u></h3>
+                        <img src="assets/images/cafeteria-dev.jpg" alt="logo">
+                        <p class="description-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros
+                            elementum tristique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="contact">
+            <article class="contact-form">
+                <header>
+                    <h2>Contato</h2>
+                </header>
+                <section>
+                    <p>Preencha os campos a baixo</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">Primeiro nome</label>
+                            <input type="text" id="first-name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="last-name">Sobrenome</label>
+                            <input type="text" id="last-name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Número de telefone</label>
+                            <input type="tel" id="phone" placeholder="Ex: 11 99999-9999">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Escolha um tópico</label>
+                        <select id="topic">
+                            <option>Selecione uma...</option>
+                            <option>Consultas gerais</option>
+                            <option>Suporte</option>
+                            <option>Feedback</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Enviar</button>
+                </section>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <div class="site-footer">
+            <p>&copy; 2025 João Victor. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to handle active link highlighting
+        const links = document.querySelectorAll('.site-header-nav ul li a');
+
+        links.forEach(link => {
+            link.addEventListener('click', function () {
+                links.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // JavaScript to handle dropdown menu
+        const dropdown = document.querySelector('.dropdown');
+        const dropbtn = document.querySelector('.dropbtn');
+
+        dropbtn.addEventListener('click', function (event) {
+            event.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener('click', function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(dropdown => {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+
+        document.querySelectorAll('.expertise-card').forEach(card => {
+            card.addEventListener('click', function () {
+                window.location.href = this.getAttribute('data-url');
+            });
+        });
+    </script>
 </body>
 
 </html>
