@@ -215,9 +215,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 5px;
-    /* Altura da listra */
     background: #6a0dad;
-    /* Cor roxa */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -246,7 +244,6 @@ h1 {
 
 .expertise-card h3 u {
     text-decoration-color: #6a5acd;
-    /* Altere para a cor desejada */
 }
 
 /* terceira section */
