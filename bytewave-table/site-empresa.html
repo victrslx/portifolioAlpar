@@ -5,102 +5,178 @@
     <meta charset="utf-8">
     <title>Byte Wave</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body style="background-color: rgb(184, 188, 192);">
-    <p><a href="../index.html">voltar</a></p>
-    <!-- leyout em tabela -->
-    <table cellspacing="0" border="0" width="100%"
-        style="background: rgb(23, 90, 128); color: white; border-radius: 10%;">
-        <thead>
-            <tr>
-                <th colspan="2">
-                    <h1>Byte Wave</h1>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <!-- menu -->
-                <td style="background: rgb(41, 187, 167); color: white;" rowspan="1" align="center">
-                    <a style=" color: white;" href="#home">Home</a>
-                    <a style=" color: white;" href="#servicos">Serviços</a>
-                    <a style=" color: white;" href="#horario">Horario</a>
-                    <a style=" color: white;" href="#contato">Contato</a>
-                </td>
+<body>
+    <header class="site-header">
+        <img srcset="
+        ./assets/images/byte-logo30.png 32w,
+        ./assets/images/byte-logo.png 200w
+    " sizes="
+        (max-width: 576px) 32px, 
+        200px
+    " src="./assets/images/byte-logo.png" alt="Byte Logomarca" class="logo">
+        <div class="container-inner">
+            <nav class="site-header-nav">
+                <ul role="list" class="flex flex-center">
+                    <li>
+                        <a href="#home" class="active">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#works">Sobre </a>
+                    </li>
+                    <li>
+                        <a href="#contact">serviços</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-            </tr>
-            <tr id="home">
-                <td style="background: white; color: black;">
-                    <h4>Nossa historia</h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Suscipit iste obcaecati illum tempore,
-                    alias perferendis dolor quia ad. Nulla quasi reprehenderit voluptas exercitationem non fugit,
-                    consequuntur mollitia id atque quos.
-                </td>
-            </tr>
-            <tr id="servicos">
-                <td style="background: white; color: black;">
-                    <h4>Serviços</h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Suscipit iste obcaecati illum tempore,
-                    alias perferendis dolor quia ad. Nulla quasi reprehenderit voluptas exercitationem non fugit,
-                    consequuntur mollitia id atque quos.
-                <td></td>
-            </tr>
-            <tr id="horario">
-                <td style="background: white; color: black;">
-                    <h4>Horario</h4>
-                    <table cellspacing="4" border="2" width="100%"
-                        style="background: rgb(17, 116, 146); color: white; border-color: rgb(40, 71, 138);">
-                        <thead>
-                            <tr>
-                                <th>horarios</th>
-                                <th>segunda</th>
-                                <th>terça</th>
-                                <th>quarta</th>
-                                <th>quinta</th>
-                                <th>sexta</th>
-                                <th>sabado</th>
-                                <th>domingos e feriados</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr align="center">
-                                <td>Manhã</td>
-                                <td>08:00 <br> 12:00</td>
-                                <td rowspan="2"> Fechado</td>
-                                <td>08:00 <br> 12:00</td>
-                                <td>08:00 <br> 12:00</td>
-                                <td>08:00 <br> 12:00</td>
-                                <td>08:00 <br> 12:00</td>
-                                <td rowspan="2">08:00 <br> 12:00</td>
-                            </tr>
-                            <tr align="center">
-                                <td>Tarde</td>
-                                <td>14:00 <br> 18:00</td>
-                                <td>14:00 <br> 18:00</td>
-                                <td>14:00 <br> 18:00</td>
-                                <td>14:00 <br> 18:00</td>
-                                <td>14:00 <br> 18:00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-            <tr style="background: white; color: black;">
-                <td>
-                    <p></p>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr id="contato">
-                <td style="background: rgb(23, 90, 128); color: rgb(255, 255, 255); border-radius: 0px 0px 10px 10px;">
-                    <h4>Contato</h4>
-                    <p>Telefone: (11) 9999-9999</p>
-                    <p>Email: contato@bytewave.com.br</p>
-                </td>
-        </tfoot>
-    </table>
+    <section class="hero">
+        <aside class="aside">
+            <h3>blablbalalbalbalbal</h3>
+            <!--preciso arrumar a fonte desse h1 -->
+            <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">blablbal</h1>
+            <p>blblbalabalabalbalab</p>
+            <a href="#" class="btn">conhecer a empresa</a>
+        </aside>
+    </section>
+
+
+    <main>
+        <article>
+            <header>
+                <h2>Lorem Ipsum Dolor</h2>
+            </header>
+            <section>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula ut sapien dapibus
+                    malesuada.
+                    Nulla facilisi. Cras in nunc sed leo interdum sollicitudin.
+                </p>
+                <h3>Vestibulum Ante Ipsum</h3>
+                <p>
+                    Suspendisse potenti. Integer bibendum, libero in auctor pharetra, nunc metus aliquet arcu, at
+                    hendrerit
+                    odio lorem a libero.
+                </p>
+                <ol>
+                    <li>
+                        Integer vel mauris non nunc luctus gravida.
+                    </li>
+                    <li>
+                        Aliquam erat volutpat. Vestibulum non magna et justo suscipit fermentum.
+                    </li>
+                    <ul>
+                        <li>Phasellus at felis in neque aliquet fermentum.</li>
+                        <li>Curabitur ac justo ac risus tempor vehicula.</li>
+                        <li>Mauris in risus non lectus accumsan tristique.</li>
+                    </ul>
+                    <li>
+                        Aenean id libero nec purus varius tincidunt ut nec orci.
+                    </li>
+                    <li>
+                        Ut scelerisque orci vel nunc volutpat, ut suscipit purus lacinia.
+                    </li>
+                </ol>
+            </section>
+        </article>
+        <article>
+            <header>
+                <h2>Curabitur Ullamcorper</h2>
+            </header>
+            <section>
+                <figure>
+                    <img src="./image.webp" alt="Placeholder image for a topic." />
+                    <figcaption>
+                        Nulla facilisi. Mauris vel purus.
+                    </figcaption>
+                </figure>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                </p>
+                <h3>Etiam Interdum</h3>
+                <ol>
+                    <li>Nam vel urna et libero fermentum fermentum.</li>
+                    <li>Quisque at magna non lorem fermentum congue.</li>
+                    <li>Vestibulum tristique felis non tortor vulputate malesuada.</li>
+                </ol>
+            </section>
+        </article>
+        <article>
+            <header>
+                <h2>Aliquam Condimentum</h2>
+            </header>
+            <section>
+                <p>
+                    Nam sodales, purus ac cursus auctor, risus nunc congue felis, id vestibulum libero nunc in felis.
+                </p>
+                <h3>Donec Consequat</h3>
+                <p>
+                    Aenean sit amet magna ut erat malesuada ultricies. Nulla facilisi.
+                </p>
+                <pre>&lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;</pre>
+                <ul>
+                    <li><span>&lt;p&gt;</span>: Tag de abertura</li>
+                    <li><span>&lt;/p&gt;</span>: Tag de fechamento</li>
+                    <li>Contentus inter tags.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="site-footer">
+            <p>&copy; 2025 João Fortes.</p>
+            <h4>Contato</h4>
+            <p>Telefone: (11) 9999-9999</p>
+            <p>Email: contato@bytewave.com.br</p>
+        </div>
+        <div class="time-table">
+            <table cellspacing="1" border="1" width="20%">
+                <thead>
+                    <tr>
+                        <th colspan="8">Horários de Funcionamento</th>
+                    </tr>
+                    <tr>
+                        <th>Horários</th>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                        <th>Sábado</th>
+                        <th>Domingos e Feriados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr align="center">
+                        <td>Manhã</td>
+                        <td>08:00 <br> 12:00</td>
+                        <td rowspan="2">Fechado</td>
+                        <td>08:00 <br> 12:00</td>
+                        <td>08:00 <br> 12:00</td>
+                        <td>08:00 <br> 12:00</td>
+                        <td>08:00 <br> 12:00</td>
+                        <td rowspan="2">08:00 <br> 12:00</td>
+                    </tr>
+                    <tr align="center">
+                        <td>Tarde</td>
+                        <td>14:00 <br> 18:00</td>
+                        <td>14:00 <br> 18:00</td>
+                        <td>14:00 <br> 18:00</td>
+                        <td>14:00 <br> 18:00</td>
+                        <td>14:00 <br> 18:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </footer>
 </body>
 
 </html>
