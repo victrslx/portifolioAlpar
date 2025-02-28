@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -87,9 +93,10 @@
         }
 
         .aside h1 {
-            font-size: 70px;
-            font-weight: bold;
+            font-size: 150px;
+            font-weight: 400;
             line-height: 1.1;
+            font-family: Clicker Script, cursive;
         }
 
         .aside p {
@@ -273,42 +280,80 @@
             font-family: math;
         }
 
-        .horarios {
-            background: #5A2D2D;
+        .time-table {
+            background: url('./assets/images/Section.png') no-repeat center;
             padding: 20px;
             border-radius: 10px;
             width: 80%;
-            margin: auto;
+            margin: 5% 1% 5% 10%;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #A66A4C;
-            color: white;
+            color: #f7e1bcd6;
+            border-radius: 5px 5px 0 0;
         }
 
         th,
         td {
             padding: 10px;
-            border: 1px solid #FFF;
+            border: 1px solid #F7E1BC;
         }
 
-        .reserva {
+        .reservation {
             margin-top: 40px;
             color: #F7E1BC;
             padding: 30px;
             border-radius: 10px;
-            width: 70%;
+            width: 40%;
             margin: auto;
         }
 
+        .contact {
+            background-color: #4a2f25;
+        }
+
+        .text-hour {
+            color: #F7E1BC;
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.171);
+            font-family: "Dancing Script", cursive;
+            font-size: 2.5em;
+            margin-right: 74%;
+            margin-top: 10%;
+        }
+
         .testbro {
-            background-color: #221518;
-            padding: 0px;
-            border-radius: 10px;
+            background: url('./assets/images/Section.png') no-repeat center;
             width: 100%;
             margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .img-reserv {
+            width: 29%;
+            padding: 6%;
+        }
+
+        .img-cafe {
+            width: 7%;
+            margin-top: 11%;
+        }
+
+        .img-cafe2 {
+            width: 6%;
+            margin-top: -11%;
+            margin-bottom: -2%;
+            margin-right: 94%;
+        }
+
+        .title-midle {
+            color: #F7E1BC;
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.171);
+            font-family: "Dancing Script", cursive;
+            font-size: 2.5em;
+            margin-bottom: -1%;
         }
 
         input,
@@ -327,6 +372,14 @@
             color: white;
             font-size: 16px;
             cursor: pointer;
+        }
+
+        footer {
+            border-top: 1px solid #F7E1BC;
+            background-color: #4a2f25;
+            color: #F7E1BC;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -347,8 +400,8 @@
     <section class="hero">
         <aside class="aside">
             <h3>Melhor café da cidade</h3>
-            <!--preciso arrumar a fonte desse h1 -->
-            <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Coffee Fortes</h1>
+            <pre><h1>Coffee 
+    Fortes</h1></pre>
             <p>Experimente o melhor café para manter seu código sempre rodando!</p>
             <a href="#" class="btn">Reserve Agora</a>
         </aside>
@@ -431,7 +484,6 @@
         </ul>
     </section>
     <section class="menu2">
-
         <h3>MENU DE SUCOS</h3>
 
         <ul class="menu-container">
@@ -467,10 +519,10 @@
         </ul>
     </section>
 
-    <section class="contato">
-        <h2>Horários</h2>
-        <div class="horarios">
-            <table cellspacing="4" border="2" width="100%">
+    <section class="contact">
+        <h2 class="text-hour">Horários</h2>
+        <div class="time-table">
+            <table>
                 <thead>
                     <tr>
                         <th>Horários</th>
@@ -505,9 +557,11 @@
                 </tbody>
             </table>
         </div>
+        <img class="img-cafe2" src="./assets/images/vector (1).png" alt="">
+        <h2 class="title-midle">Reserva</h2>
         <section class="testbro">
-            <h2>Reserva</h2>
-            <div class="reserva">
+            <img class="img-reserv" src="./assets/images/reserve-Img.png" alt="">
+            <div class="reservation">
                 <input type="date" placeholder="Data">
                 <input type="time" placeholder="Horário">
                 <select>
@@ -521,6 +575,7 @@
                 <input type="email" placeholder="Seu email">
                 <button>Reservar</button>
             </div>
+            <img class="img-cafe" src="./assets/images/vector.png" alt="">
         </section>
     </section>
 
