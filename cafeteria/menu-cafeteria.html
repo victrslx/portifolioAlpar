@@ -1,25 +1,477 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Cafeteria</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Menu da Cafeteria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Playfair Display", serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            text-align: center;
+
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            transition: background 0.3s;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: #4b2e1e;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav ul li {
+            margin: 0 15px;
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        /* Hero section com imagem de fundo */
+        .hero {
+            height: 100vh;
+            background: url('./assets/images/coffee_image.png') no-repeat center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 100px;
+            color: #fff;
+        }
+
+        .aside {
+            max-width: 400px;
+        }
+
+        .aside h3 {
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .aside h1 {
+            font-size: 70px;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
+        .aside p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #d4a373;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b08968;
+        }
+
+        /* Estilos do menu */
+
+        .menu {
+            background-color: #f8f1e9;
+            /* padding: 10px; */
+        }
+
+        .menu h2 {
+            font-size: 3.3em;
+            color: #5c3d2e;
+            margin-top: 30px;
+        }
+
+        .menu h3 {
+            font-size: 1.5em;
+            color: #5c3d2e;
+            margin-top: 3%;
+        }
+
+        .menu2 h2 {
+            font-size: 3.3em;
+            color: #2E2C2A;
+            margin-top: 30px;
+        }
+
+        .menu2 h3 {
+            font-size: 1.5em;
+            color: #2E2C2A;
+            margin-top: 3%;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            list-style-type: none;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            width: 280px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .menu-item h4 {
+            color: #5c3d2e;
+            font-size: 1.3em;
+            margin: 10px 0 5px;
+        }
+
+        .menu-item ul {
+            padding: 10px 30px 0px 20px;
+            line-height: 1.6;
+        }
+
+        .menu-item p {
+            color: #5c3d2e;
+            font-size: 17px;
+        }
+
+        .menu-item li {
+            font-size: 0.9em;
+            color: #7d5a4f;
+            font-family: math;
+        }
+
+        .menu-item2 {
+            background-color: #fff;
+            width: 280px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .menu-item2 img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .menu-item2 h4 {
+            color: #2E2C2A;
+            font-size: 1.3em;
+            margin: 10px 0 5px;
+        }
+
+        .menu-item2 ul {
+            padding: 10px 30px 0px 20px;
+            line-height: 1.6;
+        }
+
+        .menu-item2 p {
+            color: #2E2C2A;
+            font-size: 17px;
+        }
+
+        .menu-item2 li {
+            font-size: 0.9em;
+            color: #2e2c2ad5;
+            font-family: math;
+        }
+
+        .img-test {
+            margin-right: 77%;
+            margin-bottom: -4%;
+            width: 23%;
+            margin-top: -4.8%;
+        }
+
+        .img-test1 {
+            margin-left: 77%;
+            width: 23%;
+            margin-top: -10%;
+        }
+
+        .menu-item3 {
+            background-color: #fff;
+            width: 280px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .menu-item3 img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .menu-item3 h4 {
+            color: #2E2C2A;
+            font-size: 1.3em;
+            margin: 10px 0 5px;
+        }
+
+        .menu-item3 ul {
+            padding: 10px 30px 0px 20px;
+            line-height: 1.6;
+        }
+
+        .menu-item3 p {
+            color: #2E2C2A;
+            font-size: 17px;
+        }
+
+        .menu-item3 li {
+            font-size: 0.9em;
+            color: #2e2c2ad5;
+            font-family: math;
+        }
+
+        .horarios {
+            background: #5A2D2D;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #A66A4C;
+            color: white;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #FFF;
+        }
+
+        .reserva {
+            margin-top: 40px;
+            color: #F7E1BC;
+            padding: 30px;
+            border-radius: 10px;
+            width: 70%;
+            margin: auto;
+        }
+
+        .testbro {
+            background-color: #221518;
+            padding: 0px;
+            border-radius: 10px;
+            width: 100%;
+            margin: auto;
+        }
+
+        input,
+        select,
+        button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #5A2D2D;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="../index.html" class="back-btn">Voltar</a>
+
+    <header id="header">
+        <div class="logo">Café Fortes</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h1>Horário de Funcionamento</h1>
-            <table cellspacing="4" border="2" width="100%"
-                style="background: rgb(128, 56, 23); color: white; border-color: rgb(138, 79, 40);">
+    <section class="hero">
+        <aside class="aside">
+            <h3>Melhor café da cidade</h3>
+            <!--preciso arrumar a fonte desse h1 -->
+            <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Coffee Fortes</h1>
+            <p>Experimente o melhor café para manter seu código sempre rodando!</p>
+            <a href="#" class="btn">Reserve Agora</a>
+        </aside>
+    </section>
+
+    <section class="menu">
+        <img class="img-test" src="./assets/images/coffee_blast.png" alt="">
+        <h2>Saboreie um novo toque no sabor do café.</h2>
+        <h3>MENU DE CAFÉ</h3>
+        <ul class="menu-container">
+            <li class="menu-item">
+                <img src="./assets/images/cafe1.png" alt="Café Noir">
+                <h4>Noir</h4>
+                <p>Um café puro e intenso, feito com grãos de torra escura.</p>
+                <ul>
+                    <li>Ingredientes: Café 100% arábica, água filtrada.</li>
+                    <li>Sem adição de açúcar ou leite.</li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <img src="./assets/images/cafe2.png" alt="Ristretto">
+                <h4>Ristretto</h4>
+                <p>Uma versão ainda mais concentrada do expresso.</p>
+                <ul>
+                    <li>Ingredientes: Café arábica ou robusta, água filtrada.</li>
+                    <li>Mais intenso que o expresso tradicional.</li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <img src="./assets/images/cafe3.png" alt="Torrefacto">
+                <h4>Torrefacto</h4>
+                <p>Café de torra caramelizada, levemente adocicado naturalmente.</p>
+                <ul>
+                    <li>Ingredientes: Café torrefacto (grãos torrados com açúcar), água.</li>
+                    <li>Pode conter traços de açúcar.</li>
+                </ul>
+            </li>
+        </ul>
+        <img class="img-test1" src="./assets/images/coffee_blast (1).png" alt="">
+    </section>
+
+
+    <section class="menu2">
+
+        <h2>Quer algo diferente?</h2>
+        <h3>MENU DE SALGADOS/DOCES</h3>
+
+        <ul class="menu-container">
+            <li class="menu-item2">
+                <img src="./assets/images/manha1.png" alt="Café Noir">
+                <h4>Noir</h4>
+                <p>Um café puro e intenso, feito com grãos de torra escura.</p>
+                <ul>
+                    <li>Ingredientes: Café 100% arábica, água filtrada.</li>
+                    <li>Sem adição de açúcar ou leite.</li>
+                </ul>
+            </li>
+
+            <li class="menu-item2">
+                <img src="./assets/images/manha2.png" alt="Ristretto">
+                <h4>Ristretto</h4>
+                <p>Uma versão ainda mais concentrada do expresso.</p>
+                <ul>
+                    <li>Ingredientes: Café arábica ou robusta, água filtrada.</li>
+                    <li>Mais intenso que o expresso tradicional.</li>
+                </ul>
+            </li>
+
+            <li class="menu-item2">
+                <img src="./assets/images/manha3.png" alt="Torrefacto">
+                <h4>Torrefacto</h4>
+                <p>Café de torra caramelizada, levemente adocicado naturalmente.</p>
+                <ul>
+                    <li>Ingredientes: Café torrefacto (grãos torrados com açúcar), água.</li>
+                    <li>Pode conter traços de açúcar.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section class="menu2">
+
+        <h2>Redescubra o prazer de um suco feito para você ❤️</h2>
+        <h3>MENU DE SUCOS</h3>
+
+        <ul class="menu-container">
+            <li class="menu-item3">
+                <img src="./assets/images/suco1.png" alt="Café Noir">
+                <h4>Noir</h4>
+                <p>Um café puro e intenso, feito com grãos de torra escura.</p>
+                <ul>
+                    <li>Ingredientes: Café 100% arábica, água filtrada.</li>
+                    <li>Sem adição de açúcar ou leite.</li>
+                </ul>
+            </li>
+
+            <li class="menu-item3">
+                <img src="./assets/images/suco2.png" alt="Ristretto">
+                <h4>Ristretto</h4>
+                <p>Uma versão ainda mais concentrada do expresso.</p>
+                <ul>
+                    <li>Ingredientes: Café arábica ou robusta, água filtrada.</li>
+                    <li>Mais intenso que o expresso tradicional.</li>
+                </ul>
+            </li>
+
+            <li class="menu-item3">
+                <img src="./assets/images/suco3.png" alt="Torrefacto">
+                <h4>Torrefacto</h4>
+                <p>Café de torra caramelizada, levemente adocicado naturalmente.</p>
+                <ul>
+                    <li>Ingredientes: Café torrefacto (grãos torrados com açúcar), água.</li>
+                    <li>Pode conter traços de açúcar.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="contato">
+        <h2>Horários</h2>
+        <div class="horarios">
+            <table cellspacing="4" border="2" width="100%">
                 <thead>
                     <tr>
                         <th>Horários</th>
@@ -53,123 +505,43 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <section class="testbro">
+            <h2>Reserva</h2>
+            <div class="reserva">
+                <input type="date" placeholder="Data">
+                <input type="time" placeholder="Horário">
+                <select>
+                    <option>1 Pessoa</option>
+                    <option>2 Pessoas</option>
+                    <option>3 Pessoas</option>
+                    <option>4 Pessoas</option>
+                </select>
+                <input type="text" placeholder="Seu nome">
+                <input type="tel" placeholder="Seu telefone">
+                <input type="email" placeholder="Seu email">
+                <button>Reservar</button>
+            </div>
         </section>
-
-        <section>
-            <h2>Menu da Cafeteria</h2>
-            <h3>Café pra Dev (só faça um pedido se quiser codar igual doido)</h3>
-            <ol>
-                <li>Noir
-                    <ul>
-                        <li>Um café puro e intenso, feito com grãos de torra escura para um sabor marcante.</li>
-                        <li>Ingredientes: Café 100% arábica, água filtrada.</li>
-                        <li>Sem adição de açúcar ou leite.</li>
-                    </ul>
-                </li>
-                <li>Ristretto
-                    <ul>
-                        <li>Uma versão ainda mais concentrada do expresso, com menos água e mais potência.</li>
-                        <li>Ingredientes: Café arábica ou robusta, água filtrada.</li>
-                        <li>Mais intenso que o expresso tradicional.</li>
-                    </ul>
-                </li>
-                <li>Torrefacto
-                    <ul>
-                        <li>Café de torra caramelizada, levemente adocicado naturalmente.</li>
-                        <li>Ingredientes: Café torrefacto (grãos torrados com açúcar), água.</li>
-                        <li>Pode conter traços de açúcar devido ao processo de torrefação.</li>
-                    </ul>
-                </li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Salgados</h2>
-            <ol>
-                <li>Coxinha
-                    <ul>
-                        <li>Ingredientes: massa de batata, frango desfiado, temperos.</li>
-                        <li>Empanada e frita.</li>
-                    </ul>
-                </li>
-                <li>Pastel
-                    <ul>
-                        <li>Ingredientes: massa de farinha de trigo, recheio de carne, queijo, frango, palmito, etc.
-                        </li>
-                        <li>Empanado e frito.</li>
-                    </ul>
-                </li>
-                <li>Esfiha
-                    <ul>
-                        <li>Ingredientes: massa de farinha de trigo, recheio de carne, queijo, frango, palmito, etc.
-                        </li>
-                        <li>Assada.</li>
-                    </ul>
-                </li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Bebidas</h2>
-            <ol>
-                <li>Suco
-                    <ul>
-                        <li>Ingredientes: frutas, água, açúcar.</li>
-                        <li>Feito na hora.</li>
-                    </ul>
-                </li>
-                <li>Refrigerante
-                    <ul>
-                        <li>Ingredientes: água gaseificada, açúcar, corantes, aromatizantes.</li>
-                        <li>Em lata ou garrafa.</li>
-                    </ul>
-                </li>
-                <li>Água
-                    <ul>
-                        <li>Ingredientes: água mineral.</li>
-                        <li>Com ou sem gás.</li>
-                    </ul>
-                </li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Contato</h2>
-            <form>
-                <label>
-                    <p>Nome completo</p>
-                    <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
-                </label>
-                <br>
-                <label>
-                    <p>Email</p>
-                    <input type="email" name="email" id="email" placeholder="Digite seu email">
-                </label>
-                <br>
-                <label>
-                    <p>Telefone</p>
-                    <input type="tel" name="telefone" id="telefone" placeholder="Digite seu telefone">
-                </label>
-                <br>
-                <label>
-                    <p>Assunto</p>
-                    <input type="text" name="assunto" id="assunto" placeholder="Digite o assunto">
-                </label>
-                <br>
-                <label>
-                    <p>Mensagem</p>
-                    <textarea name="mensagem" id="mensagem" cols="30" rows="10"
-                        placeholder="Digite sua mensagem"></textarea>
-                </label>
-                <br>
-                <button type="submit" class="submit-btn">Enviar</button>
-            </form>
-        </section>
-    </main>
+    </section>
 
     <footer>
-        <p>&copy; 2025 João Fortes.</p>
+        <p>&copy; 2023 Café Fortes.</p>
+        <p>Endereço: Rua do Café, 123 - Centro, Cidade - Estado</p>
+        <p>Telefone: (11) 1234-5678</p>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
 </body>
 
 </html>
