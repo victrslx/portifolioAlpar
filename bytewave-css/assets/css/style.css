@@ -1,161 +1,356 @@
+@import "tailwindcss";
+
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer-site";
+    min-height: 100vh;
 }
 
-.site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+header {
+    grid-area: header;
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 20px;
-    background: #ffffff;
-    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    background: transparent;
+    transition: background 0.3s;
     z-index: 1000;
 }
 
-.container-inner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-around;
-    margin-right: 10%;
+header.scrolled {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.logo {
+    color: #ffffff;
+    font-size: 100%;
+    font-weight: bold;
+}
 
-.site-header-nav ul {
+header.scrolled .logo {
+    color: #3a3a3a;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5% 0 5%;
+}
+
+nav ul {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+    gap: 20px;
 }
 
-.site-header-nav ul li {
-    margin-right: 20px;
+nav ul li {
+    position: relative;
 }
 
-.site-header-nav ul li a {
-    font-size: 1.2em;
+nav ul li a {
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
 
-    @media screen and (max-width: 576px) {
-        font-size: 0.90em;
+header.scrolled nav ul li a {
+    color: #242424;
+}
+
+header.scrolled nav ul li a:hover,
+header.scrolled nav ul li a.active {
+    color: #007bff;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ffffff;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Hero section styles */
+.hero {
+    grid-area: hero;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/main-image.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(8, 14, 32, 0.747);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.Btn-bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.hero h1,
+.hero p {
+    position: relative;
+    color: white;
+    z-index: 1;
+    text-align: center;
+    padding: 4%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
-.site-header-nav ul li a.active {
-    color: #0059ff;
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "hero"
+        "customers"
+        "client-content"
+        "howsoft-section";
+    gap: 20px;
 }
 
-ul[role="list"],
-ol[role="list"] {
-    list-style: none;
-    padding: 0;
+.customers {
+    grid-area: customers;
+    text-align: center;
+    padding: 50px 0px;
 }
 
-.hero {
-    height: 100vh;
-    background-size: cover;
+.customers h2 {
+    color: #0882dc;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    opacity: 0.6;
+    margin: 40px 0;
+}
+
+.logos span {
+    font-size: 34px;
+    font-weight: bold;
+    color: #888;
+}
+
+.client-content {
+    grid-area: client-content;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding-left: 100px;
-    color: #383838;
+    background-color: #0882dc;
+    color: white;
 }
 
-.aside {
-    max-width: 400px;
+.client-content img {
+    width: 33%;
+    height: auto;
+    object-fit: cover;
 }
 
-.aside h3 {
-    font-size: 20px;
-    text-transform: uppercase;
+.text-client {
+    width: 50%;
+    padding-left: 34px;
+}
+
+.text-client h3 {
+    font-size: 53px;
+    font-weight: bold;
+    max-width: 53%;
+}
+
+.text-client p {
+    margin-top: 15px;
+    font-size: 21px;
+}
+
+.btn-contact {
+    margin-top: 21px;
+    background-color: white;
+    color: #0882dc;
+    font-weight: bold;
+    padding: 14px 25px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-contact:hover {
+    background-color: #e0e0e0;
+}
+
+.img-l {
+    margin-left: -91%;
+    margin-bottom: -9%;
+    width: 9%;
+}
+
+.img-r {
+    margin-right: -91%;
+    margin-top: -10%;
+    width: 9%;
+}
+
+/* New Section: Way of Building Great Software */
+.howsoft-section {
+    grid-area: howsoft-section;
+    background-color: #fff;
+    padding: 80px 20px;
+    margin: 40px auto;
+    max-width: 90%;
+}
+
+.howsoft-header {
+    text-align: center;
+    margin-bottom: 8%;
+}
+
+.howsoft-header h1 {
+    margin: 0;
+    font-size: 46px;
+    color: #333;
+    font-weight: lighter;
+}
+
+.howsoft-header h2 {
+    margin: 0;
+    font-size: 46px;
+    color: #333;
+}
+
+.howsoft-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15%;
+}
+
+.howsoft-content2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.howsoft-text {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.howsoft-text h3 {
+    font-size: 28px;
+    color: #333;
     margin-bottom: 10px;
 }
 
-.aside h1 {
-    font-size: 70px;
+.howsoft-text p {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.howsoft-text .howsoft-highlight {
+    color: #07a4e9;
+}
+
+.howsoft-text blockquote {
+    border-left: 4px solid #07a4e9;
+    padding-left: 10px;
+    margin-top: 20px;
+    font-style: italic;
+    color: #555;
+}
+
+.howsoft-text blockquote footer {
     font-weight: bold;
-    line-height: 1.1;
+    color: #333;
+    text-align: left;
+    margin-top: 10px;
 }
 
-.aside p {
-    font-size: 18px;
-    margin: 15px 0;
+.howsoft-image {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #73c0d4;
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s;
+.howsoft-image img {
+    max-width: 100%;
+    display: block;
+    border-radius: 10px;
 }
 
-.btn:hover {
-    background: #6890b0;
+.deco-line {
+    display: block;
+    margin: 21px auto;
 }
 
-.site-footer {
-    color: #525252;
+.footer-site {
+    grid-area: footer-site;
+    background-color: #0882dc;
+    color: white;
     text-align: center;
-    border-top: 1px solid #303030;
-    margin: 10% 10% 0% 10%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.site-footer h4 {
-
-    margin: 20px 0 0px 0;
-}
-
-.site-footer p {
-    margin: 20px 0;
-}
-
-.time-table {
-    margin: 20px 10%;
-}
-
-.time-table table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-}
-
-.time-table thead tr {
-    color: #575757;
-    text-align: center;
-    font-weight: bold;
-}
-
-.time-table th,
-.time-table td {
-    padding: 12px 15px;
-}
-
-.time-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.time-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    padding: 20px 0;
 }

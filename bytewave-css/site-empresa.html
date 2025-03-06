@@ -2,243 +2,154 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <title>Byte Wave</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteWave</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/script/script.js" defer></script>
 </head>
 
 <body>
-    <header class="site-header">
-        <img srcset="
-        ./assets/images/byte-logo30.png 32w,
-        ./assets/images/byte-logo.png 200w
-    " sizes="
-        (max-width: 576px) 32px, 
-        200px
-    " src="./assets/images/byte-logo.png" alt="Byte Logomarca" class="logo">
-        <div class="container-inner">
-            <nav class="site-header-nav">
-                <ul role="list" class="flex flex-center">
-                    <li>
-                        <a href="#home" class="active">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="#works">Sobre </a>
-                    </li>
-                    <li>
-                        <a href="#contact">serviços</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contato</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <h2>ByteWave</h2>
+            </div>
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero">
-        <aside class="aside">
-            <h3>blablbalalbalbalbal</h3>
-            <!--preciso arrumar a fonte desse h1 -->
-            <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">blablbal</h1>
-            <p>blblbalabalabalbalab</p>
-            <a href="#" class="btn">conhecer a empresa</a>
-        </aside>
-    </section>
-
-
     <main>
-        <article>
-            <header>
-                <h2>Lorem Ipsum Dolor</h2>
-            </header>
-            <section>
+        <section class="hero" id="home">
+            <div class="overlay">
+                <h1>Grandes softwares nascem de grandes equipes.</h1>
+                <p>Impulcione sua empresa contratando a ByteWave </p>
+                <a href="#customers"><img class="Btn-bottom" src="./assets/images/Btn-bottom.png" alt=""></a>
+
+            </div>
+        </section>
+
+        <section id="customers" class="customers">
+            <img class="img-l" src="./assets/images/Component-L.png" alt="">
+            <h2>Nossos clientes</h2>
+            <div class="logos">
+                <span>Alpar</span>
+                <span>Microsoft</span>
+                <span>Dell</span>
+                <span>Samsung</span>
+            </div>
+            <img class="img-r" src="./assets/images/Component-R.png" alt="">
+        </section>
+
+        <section class="client-content">
+            <img src="./assets/images/handshake.png" alt="Handshake">
+            <div class="text-client">
+                <h3>Seja um cliente você também</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula ut sapien dapibus
-                    malesuada.
-                    Nulla facilisi. Cras in nunc sed leo interdum sollicitudin.
+                    Especialistas em tecnologia para o crescimento do seu negócio. Oferecemos estratégias personalizadas
+                    para impulsionar sua empresa rumo ao sucesso. Nossa missão é desbloquear seu potencial e transformar
+                    sua
+                    visão em realidade.
                 </p>
-                <h3>Vestibulum Ante Ipsum</h3>
-                <p>
-                    Suspendisse potenti. Integer bibendum, libero in auctor pharetra, nunc metus aliquet arcu, at
-                    hendrerit
-                    odio lorem a libero.
-                </p>
-                <ol>
-                    <li>
-                        Integer vel mauris non nunc luctus gravida.
-                    </li>
-                    <li>
-                        Aliquam erat volutpat. Vestibulum non magna et justo suscipit fermentum.
-                    </li>
-                    <ul>
-                        <li>Phasellus at felis in neque aliquet fermentum.</li>
-                        <li>Curabitur ac justo ac risus tempor vehicula.</li>
-                        <li>Mauris in risus non lectus accumsan tristique.</li>
-                    </ul>
-                    <li>
-                        Aenean id libero nec purus varius tincidunt ut nec orci.
-                    </li>
-                    <li>
-                        Ut scelerisque orci vel nunc volutpat, ut suscipit purus lacinia.
-                    </li>
-                </ol>
-            </section>
-        </article>
-        <article>
-            <header>
-                <h2>Curabitur Ullamcorper</h2>
-            </header>
-            <section>
-                <figure>
-                    <img src="./image.webp" alt="Placeholder image for a topic." />
-                    <figcaption>
-                        Nulla facilisi. Mauris vel purus.
-                    </figcaption>
-                </figure>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                </p>
-                <h3>Etiam Interdum</h3>
-                <ol>
-                    <li>Nam vel urna et libero fermentum fermentum.</li>
-                    <li>Quisque at magna non lorem fermentum congue.</li>
-                    <li>Vestibulum tristique felis non tortor vulputate malesuada.</li>
-                </ol>
-            </section>
-        </article>
-        <article>
-            <header>
-                <h2>Curabitur Ullamcorper</h2>
-            </header>
-            <section>
-                <figure>
-                    <img src="./image.webp" alt="Placeholder image for a topic." />
-                    <figcaption>
-                        Nulla facilisi. Mauris vel purus.
-                    </figcaption>
-                </figure>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                </p>
-                <h3>Etiam Interdum</h3>
-                <ol>
-                    <li>Nam vel urna et libero fermentum fermentum.</li>
-                    <li>Quisque at magna non lorem fermentum congue.</li>
-                    <li>Vestibulum tristique felis non tortor vulputate malesuada.</li>
-                </ol>
-            </section>
-        </article>
-        <article>
-            <header>
-                <h2>Curabitur Ullamcorper</h2>
-            </header>
-            <section>
-                <figure>
-                    <img src="./image.webp" alt="Placeholder image for a topic." />
-                    <figcaption>
-                        Nulla facilisi. Mauris vel purus.
-                    </figcaption>
-                </figure>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                </p>
-                <h3>Etiam Interdum</h3>
-                <ol>
-                    <li>Nam vel urna et libero fermentum fermentum.</li>
-                    <li>Quisque at magna non lorem fermentum congue.</li>
-                    <li>Vestibulum tristique felis non tortor vulputate malesuada.</li>
-                </ol>
-            </section>
-        </article>
-        <article>
-            <header>
-                <h2>Curabitur Ullamcorper</h2>
-            </header>
-            <section>
-                <figure>
-                    <img src="./image.webp" alt="Placeholder image for a topic." />
-                    <figcaption>
-                        Nulla facilisi. Mauris vel purus.
-                    </figcaption>
-                </figure>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                </p>
-                <h3>Etiam Interdum</h3>
-                <ol>
-                    <li>Nam vel urna et libero fermentum fermentum.</li>
-                    <li>Quisque at magna non lorem fermentum congue.</li>
-                    <li>Vestibulum tristique felis non tortor vulputate malesuada.</li>
-                </ol>
-            </section>
-        </article>
-        <article>
-            <header>
-                <h2>Aliquam Condimentum</h2>
-            </header>
-            <section>
-                <p>
-                    Nam sodales, purus ac cursus auctor, risus nunc congue felis, id vestibulum libero nunc in felis.
-                </p>
-                <h3>Donec Consequat</h3>
-                <p>
-                    Aenean sit amet magna ut erat malesuada ultricies. Nulla facilisi.
-                </p>
-                <pre>Lorem ipsum dolor sit amet</pre>
-            </section>
-        </article>
+                <button class="btn-contact" onclick="getInTouch()">Fazer parte</button>
+            </div>
+        </section>
+
+        <section class="howsoft-section">
+            <img class="deco-line" src="./assets/images/Deco-line.png" alt="decoration line">
+            <div class="howsoft-header">
+                <h1>Maneira de construir</h1>
+                <h2>Um ótimo software</h2>
+            </div>
+            <div class="howsoft-content">
+                <div class="howsoft-text">
+                    <h3>Planejando o Futuro Digital com Base em Experiências Reais</h3>
+                    <p>
+                        Em um cenário onde a tecnologia evolui a uma velocidade sem precedentes, a estratégia é o nosso
+                        maior diferencial. A imagem ilustra uma equipe de especialistas reunida em uma sessão intensa de
+                        planejamento, onde cada ideia se transforma em um passo rumo à inovação. Aqui, o planejamento de
+                        TI
+                        não é apenas um conjunto de diretrizes – é uma construção coletiva que se apoia em estudos de
+                        casos
+                        reais para moldar o futuro.
+                    </p>
+                    <p>
+                        Nosso <span class="howsoft-highlight">modelo de entrega</span> ajuda você a cortar custos e
+                        entregar
+                        dentro do orçamento.
+                    </p>
+                    <blockquote>
+                        <p>"The most dangerous phrase in the language is: 'We've always done it this way.'"</p>
+                        <footer>Grace Hopper</footer>
+                    </blockquote>
+                </div>
+                <div class="howsoft-image">
+                    <img src="./assets/images/josejose.png" alt="Team meeting">
+                </div>
+            </div>
+            <div class="howsoft-content2">
+                <div class="howsoft-text">
+                    <h3>Transformando Desafios em Soluções Inovadoras</h3>
+                    <p>
+                        Em meio a quadros repletos de anotações e gráficos, uma equipe se reúne para converter
+                        experiências
+                        passadas em estratégias voltadas para o futuro. Cada sessão de brainstorming é, na verdade, um
+                        mergulho profundo em estudos de casos reais – análises minuciosas dos sucessos e dos desafios
+                        que já
+                        foram enfrentados.
+                    </p>
+                    <p>
+                        Em tempos de constante evolução, questionar o <span class="howsoft-highlight">“sempre foi
+                            assim”</span> e
+                        explorar novos horizontes torna-se essencial.
+                    </p>
+                    <blockquote>
+                        <p>"A melhor forma de prever o futuro é criá-lo."</p>
+                        <footer>Alan Kay</footer>
+                    </blockquote>
+                </div>
+                <div class="howsoft-image">
+                    <img src="./assets/images/mariamaria.png" alt="Team meeting">
+                </div>
+            </div>
+            <div class="howsoft-content">
+                <div class="howsoft-text">
+                    <h3>Planejamento em Resultados que Encantam o Cliente</h3>
+                    <p>
+                        O ambiente colaborativo destaca a importância de um planejamento bem estruturado: ao avaliar
+                        desafios e conquistas anteriores, a equipe refina suas estratégias e antecipa possíveis
+                        obstáculos.
+                        Essa dedicação garante que o planejamento se transforme, de forma eficaz, em um produto final
+                        que
+                        agrega valor real ao negócio do cliente.
+                    </p>
+                    <p>A entrega vai além do produto ou serviço tecnológico – ela representa uma experiência marcada
+                        pela
+                        <span class="howsoft-highlight">qualidade, pela transparência e pela personalização.</span>
+                    </p>
+                    <blockquote>
+                        <p>We see our customers as invited guests to a party, and we are the hosts. It's our job every
+                            day
+                            to make every important aspect of the customer experience a little bit better."</p>
+                        <footer>Jeff Bezos</footer>
+                    </blockquote>
+                </div>
+                <div class="howsoft-image">
+                    <img src="./assets/images/paulopaulo.png" alt="Team meeting">
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <div class="site-footer">
-            <p>&copy; 2025 João Fortes.</p>
-            <h4>Contato</h4>
-            <p>Telefone: (11) 9999-9999</p>
-            <p>Email: contato@bytewave.com.br</p>
-        </div>
-        <div class="time-table">
-            <table cellspacing="1" border="1" width="20%">
-                <thead>
-                    <tr>
-                        <th colspan="8">Horários de Funcionamento</th>
-                    </tr>
-                    <tr>
-                        <th>Horários</th>
-                        <th>Segunda</th>
-                        <th>Terça</th>
-                        <th>Quarta</th>
-                        <th>Quinta</th>
-                        <th>Sexta</th>
-                        <th>Sábado</th>
-                        <th>Domingos e Feriados</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr align="center">
-                        <td>Manhã</td>
-                        <td>08:00 <br> 12:00</td>
-                        <td rowspan="2">Fechado</td>
-                        <td>08:00 <br> 12:00</td>
-                        <td>08:00 <br> 12:00</td>
-                        <td>08:00 <br> 12:00</td>
-                        <td>08:00 <br> 12:00</td>
-                        <td rowspan="2">08:00 <br> 12:00</td>
-                    </tr>
-                    <tr align="center">
-                        <td>Tarde</td>
-                        <td>14:00 <br> 18:00</td>
-                        <td>14:00 <br> 18:00</td>
-                        <td>14:00 <br> 18:00</td>
-                        <td>14:00 <br> 18:00</td>
-                        <td>14:00 <br> 18:00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <footer class="footer-site">
+        <p>&copy; 2025 ByteWave. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="./assets/js/script.js" defer></script>
 </body>
 
 </html>
