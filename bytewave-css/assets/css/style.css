@@ -403,13 +403,7 @@ main {
     border: 1px solid #ddd;
     text-align: center;
 
-    @media screen and (max-width: 768px) {
-        padding: 0px;
-    }
 
-    @media screen and (max-width: 506px) {
-        border: 0;
-    }
 }
 
 /* githubta doido */
