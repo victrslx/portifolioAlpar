@@ -402,7 +402,16 @@ main {
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: center;
+}
 
+.time-table th {
+    @media screen and (max-width: 768px) {
+        padding: 0px;
+        border: 0;
+    }
+}
+
+.time-table td {
     @media screen and (max-width: 768px) {
         padding: 0px;
         border: 0;
