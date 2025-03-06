@@ -1,60 +1,63 @@
-body {
-    box-sizing: border-box;
+/* Reset básico */
+* {
     margin: 0;
-    /* padding: 16px; */
-    height: 100vh;
-    grid-template-areas: "header header" "menu main" "footer footer";
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 80px 1fr 60px;
-    display: grid;
-    /* grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 2fr;
-    grid-auto-rows: 1fr;
-    gap: 16px; */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* div {
-    background-color: red;
-} */
+body {
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+}
 
 header {
     grid-area: header;
-    background-color: #333;
+    background-color: #0882dc;
     color: white;
-
+    padding: 20px;
     text-align: center;
 }
 
 aside {
-    grid-area: menu;
-    background-color: #0882dc;
-    color: white;
-    text-align: center;
+    grid-area: aside;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+aside h2 {
+    margin-bottom: 10px;
 }
 
 aside ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
+aside ul li {
+    margin-bottom: 10px;
+}
+
 aside ul li a {
-    color: white;
+    text-decoration: none;
+    color: #333;
 }
 
 main {
     grid-area: main;
-    background-color: white;
-    color: #333;
+    padding: 20px;
     overflow: auto;
-    text-align: center;
 }
 
-footer {
-    grid-area: footer;
-    background-color: #333;
-    color: white;
-
-    text-align: center;
+p {
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .text-hour {
@@ -63,20 +66,14 @@ footer {
 }
 
 .time-table {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
     overflow-x: auto;
-
-    @media screen and (max-width: 768px) {
-
-        max-width: 90%;
-    }
+    margin-bottom: 40px;
 }
 
 .time-table table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
 }
 
 .time-table th,
@@ -86,99 +83,80 @@ footer {
     text-align: center;
 }
 
-.time-table th {
-    @media screen and (max-width: 768px) {
-        padding: 0px;
-        border: 0;
-    }
-}
-
-.time-table td {
-    @media screen and (max-width: 768px) {
-        padding: 0px;
-        border: 0;
-    }
-}
-
-/* githubta doido */
 .time-table thead {
-    color: #333;
+    background-color: #007bff;
+    color: white;
+}
+
+.time-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.time-table tbody tr:hover {
+    background-color: #e0e0e0;
 }
 
 .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1%;
-    margin-top: 6%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.contact-form p {
-    text-align: center;
-    color: #666;
+.contact-form header {
     margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 5%;
 }
 
 .contact-form .form-row {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.contact-form .form-row .form-group {
+.contact-form .form-group {
     flex: 1;
-    margin-right: 5%;
 }
 
-.contact-form .form-row .form-group:last-child {
-    margin-right: 0;
-}
-
-label {
-
+.contact-form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-input,
-select,
-textarea {
+.contact-form select {
+    margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
     width: 100%;
     padding: 10px;
-    border: 2px solid #333;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 14px;
 }
 
-textarea {
-    height: 120px;
-    resize: none;
+.contact-form textarea {
+    resize: vertical;
 }
 
 .submit-btn {
-    width: 20%;
-    background: #333;
+    margin-top: 1%;
+    background-color: #007bff;
     color: white;
-    font-size: 16px;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10%;
-    transition: background 0.3s;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .submit-btn:hover {
-    background: #333;
+    background-color: #0056b3;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #0882dc;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
