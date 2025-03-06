@@ -16,8 +16,8 @@
             </div>
             <ul>
                 <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#howsoft" class="nav-link">Serviços</a></li>
-                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#howsoft" class="nav-link">Sobre</a></li>
+                <li><a href="#service" class="nav-link">Serviços</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
         </nav>
@@ -55,7 +55,7 @@
                     sua
                     visão em realidade.
                 </p>
-                <button class="btn-contact" onclick="getInTouch()">Fazer parte</button>
+                <a href="#contact"><button class="btn-contact" onclick="getInTouch()">Fazer parte</button></a>
             </div>
         </section>
 
@@ -162,13 +162,137 @@
                 </div>
             </div>
         </section>
+        <section id="service" class="approach-section">
+            <img class="deco-line" src="./assets/images/Deco-line.png" alt="decoration line">
+            <div class="approach-header">
+                <h1>Nossos</h1>
+                <h2>Serviços</h2>
+            </div>
+            <div class="approach-grid">
+                <article class="approach-card">
+                    <div class="flex-text">
+                        <img src="./assets/images/icon1.png" alt="UX Driven Engineering">
+                        <h3>Desenvolvimento orientado por UX</h3>
+                        <p>
+                            Desenvolvemos soluções com foco na experiência do usuário, garantindo interfaces intuitivas
+                            e funcionais. Nossa abordagem prioriza design e usabilidade desde a concepção até a
+                            implementação do código.
+                        </p>
+                    </div>
+                </article>
+                <article class="approach-card">
+                    <div class="flex-text">
+                        <img src="./assets/images/icon2.png" alt="Developing Shared Understanding">
+                        <h3>Construção Conjunta e Colaborativa</h3>
+                        <p>
+                            Trabalhamos com metodologias colaborativas para garantir que todos os envolvidos no projeto
+                            compartilhem a mesma visão. Nossa equipe promove alinhamento contínuo entre stakeholders,
+                            designers e desenvolvedores.
+                        </p>
+                    </div>
+                </article>
+                <article class="approach-card">
+                    <div class="flex-text">
+                        <img src="./assets/images/icon3.png" alt="Proven Experience and Expertise">
+                        <h3>Experiência e Especialização Comprovadas</h3>
+                        <p>
+                            Com anos de experiência no setor de tecnologia, nossa equipe aplica as melhores práticas
+                            para entregar soluções robustas e eficientes. Transformamos conhecimento em inovação para
+                            impulsionar seu negócio.
+                        </p>
+                    </div>
+                </article>
+                <article class="approach-card">
+                    <div class="flex-text">
+                        <img src="./assets/images/icon4.png" alt="Security & Intellectual Property">
+                        <h3>Segurança e Proteção da Propriedade Intelectual</h3>
+                        <p>
+                            Priorizamos a segurança em todas as etapas do desenvolvimento, protegendo sua propriedade
+                            intelectual e garantindo conformidade com os mais altos padrões de segurança da informação.
+                        </p>
+                    </div>
+                </article>
+                <article class="approach-card">
+                    <div class="flex-text">
+                        <img src="./assets/images/icon5.png" alt="Code Reviews">
+                        <h3> Análises Aprofundadas de Código</h3>
+                        <p>
+                            Realizamos revisões de código periódicas para manter a qualidade, legibilidade e segurança
+                            do software. Nosso processo fomenta a melhoria contínua e a excelência no desenvolvimento.
+                        </p>
+                    </div>
+                </article>
+                <article class="approach-card">
+                    <div class="flex-text">
+                        <img src="./assets/images/icon6.png" alt="Quality Assurance & Testing">
+                        <h3>Garantia de Qualidade e Testes Rigorosos</h3>
+                        <p>
+                            Testamos rigorosamente cada solução para assegurar desempenho confiável e experiência fluida
+                            para os usuários. Nossos testes abrangem funcionalidade, performance e segurança.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <img class="deco-line" src="./assets/images/Deco-line.png" alt="decoration line">
+            <div class="contact-header">
+                <h2>Contato</h2>
+                <p>Preencha os campos abaixo</p>
+            </div>
+            <div class="contact-form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">Primeiro nome</label>
+                        <input type="text" id="first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Sobrenome</label>
+                        <input type="text" id="last-name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Número de telefone</label>
+                        <input type="tel" id="phone" placeholder="Ex: 11 99999-9999">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="topic">Escolha um tópico</label>
+                    <select id="topic">
+                        <option>Selecione uma...</option>
+                        <option>Consultas gerais</option>
+                        <option>Suporte</option>
+                        <option>Feedback</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar</button>
+            </div>
+        </section>
     </main>
 
     <footer class="footer-site">
-        <h2 class="text-hour">Horários</h2>
+        <div class="site-footer">
+            <h4>Contato</h4>
+            <p>Telefone: (11) 9999-9999</p>
+            <p>Email: contato@bytewave.com.br</p>
+        </div>
         <div class="time-table">
             <table>
                 <thead>
+                    <tr>
+                        <th colspan="8">Horários de Funcionamento</th>
+                    </tr>
                     <tr>
                         <th>Horários</th>
                         <th>Segunda</th>

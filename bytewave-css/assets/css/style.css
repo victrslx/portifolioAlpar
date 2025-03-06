@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 * {
     margin: 0;
     padding: 0;
@@ -168,7 +166,9 @@ main {
         "hero"
         "customers"
         "client-content"
-        "howsoft-section";
+        "howsoft-section"
+        "approach-section"
+        "contact-section";
     gap: 20px;
 }
 
@@ -364,37 +364,44 @@ main {
     margin: 21px auto;
 }
 
+
 .footer-site {
     grid-area: footer-site;
-    background-color: #0882dc;
-    color: white;
+    color: #525252;
     text-align: center;
-    padding: 20px 0;
+    border-top: 1px solid #616161;
+    margin: 4% 10% 0% 10%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    justify-content: space-between;
 }
 
-.text-hour {
-    font-size: 24px;
-    margin-bottom: 20px;
+.footer-site h4 {
+    margin: 20px 0 0px 0;
+}
+
+.footer-site p {
+    margin: 20px 0;
 }
 
 .time-table {
-    width: 90%;
-    overflow-x: auto;
-
-    @media screen and (max-width: 768px) {
-
-        max-width: 90%;
-    }
+    margin: 20px 10%;
 }
 
 .time-table table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    font-size: 1em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+.time-table thead tr {
+    color: #575757;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
 }
 
 .time-table th,
@@ -404,17 +411,13 @@ main {
     text-align: center;
 }
 
-.time-table th {
-    @media screen and (max-width: 768px) {
-        padding: 0px;
-        border: 0;
-    }
-}
+.time-table {
+    width: 90%;
+    overflow-x: auto;
 
-.time-table td {
-    @media screen and (max-width: 768px) {
-        padding: 0px;
-        border: 0;
+    @media screen and (max-width: 1017px) {
+        max-width: 0;
+
     }
 }
 
@@ -459,4 +462,154 @@ main {
 .hover-popup:hover .popup-text {
     visibility: visible;
     opacity: 1;
+}
+
+.approach-section {
+    grid-area: approach-section;
+    background-color: #F7F7FA;
+    padding: 80px 20px;
+}
+
+.approach-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.approach-header h1 {
+    margin: 0;
+    font-size: 46px;
+    color: #333;
+    font-weight: lighter;
+}
+
+.approach-header h2 {
+    margin: 0;
+    font-size: 46px;
+    color: #333;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+    gap: 20px;
+    padding: 100px;
+}
+
+.approach-card {
+    background-color: #fff;
+    padding: 49px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.approach-card:hover {
+    transform: translateY(-5px);
+}
+
+.approach-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    grid-area: img-aside;
+}
+
+.approach-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+    grid-area: text-left;
+}
+
+.approach-card p {
+    font-size: 1rem;
+    margin-top: 30px;
+    color: #666;
+    grid-area: text-left;
+}
+
+.flex-text {
+    display: grid;
+    gap: 0px 31px;
+    grid-template-areas:
+        "img-aside text-left"
+    ;
+}
+
+.contact-section {
+    grid-area: contact-section;
+    padding: 70px 20px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #333;
+    font-weight: lighter;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 4%;
+}
+
+.form-group {
+    margin-bottom: 5%;
+}
+
+.contact-form .form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form .form-row .form-group {
+    flex: 1;
+    margin-right: 5%;
+}
+
+.contact-form .form-row .form-group:last-child {
+    margin-right: 0;
+}
+
+label {
+
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #2282e0b7;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+.submit-btn {
+    width: 50%;
+    background: #2282e0;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10%;
+    transition: background 0.3s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit-btn:hover {
+    background: #1861aa;
 }
