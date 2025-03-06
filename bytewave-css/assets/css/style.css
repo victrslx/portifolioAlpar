@@ -405,9 +405,6 @@ main {
 
     @media screen and (max-width: 768px) {
         padding: 0px;
-    }
-
-    @media screen and (max-width: 506px) {
         border: 0;
     }
 }
