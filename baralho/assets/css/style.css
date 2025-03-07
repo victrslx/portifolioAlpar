@@ -47,10 +47,12 @@ body {
 }
 
 .carta-front {
-    font-size: 24px;
+    font-size: 14px;
     background-color: white;
     padding: 4%;
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 100;
+    color: #333;
 }
 
 .naipe {
@@ -69,16 +71,16 @@ body {
 
 .carta-left {
     position: absolute;
-    top: 10%;
-    left: 2%;
-    transform: translate(-30%) rotate(90deg);
+    top: 4%;
+    left: 4%;
+    transform: translate(1%);
 }
 
 .carta-right {
     position: absolute;
-    top: 80%;
-    right: -10%;
-    transform: translateY(-18%) rotate(-90deg);
+    top: 72%;
+    right: 4%;
+    transform: translateY(-17%) rotate(180deg);
 }
 
 .logo {
