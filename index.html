@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/script/logica.js" defer></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -140,37 +141,38 @@
                 <header>
                     <h2>Contato</h2>
                 </header>
-                <section>
+                <form id="contact-form">
                     <p>Preencha os campos a baixo</p>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="first-name">Primeiro nome</label>
-                            <input type="text" id="first-name">
+                            <label for="first-name">Primeiro nome <span style="color: red;">*</span></label>
+                            <input type="text" id="first-name" name="first-name" required maxlength="50">
                         </div>
 
                         <div class="form-group">
-                            <label for="last-name">Sobrenome</label>
-                            <input type="text" id="last-name">
+                            <label for="last-name">Sobrenome <span style="color: red;">*</span></label>
+                            <input type="text" id="last-name" name="last-name" required maxlength="50">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email">
+                            <label for="email">Email <span style="color: red;">*</span></label>
+                            <input type="email" id="email" name="email" required maxlength="100">
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Número de telefone</label>
-                            <input type="tel" id="phone" placeholder="Ex: 11 99999-9999">
+                            <label for="phone">Número de telefone <span style="color: red;">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="Ex: 11 99999-9999" required
+                                maxlength="15">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="topic">Escolha um tópico</label>
-                        <select id="topic">
-                            <option>Selecione uma...</option>
+                        <label for="topic">Escolha um tópico <span style="color: red;">*</span></label>
+                        <select id="topic" name="topic" required>
+                            <option value="">Selecione uma...</option>
                             <option>Consultas gerais</option>
                             <option>Suporte</option>
                             <option>Feedback</option>
@@ -178,12 +180,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+                        <label for="message">Mensagem <span style="color: red;">*</span></label>
+                        <textarea id="message" name="message" placeholder="Digite sua mensagem..." required
+                            maxlength="500"></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Enviar</button>
-                </section>
+                </form>
             </article>
         </section>
     </main>
@@ -192,6 +195,7 @@
             <p>&copy; 2025 João Fortes.</p>
         </div>
     </footer>
+    <script type="module" src="./assets/script/logica.js" defer></script>
 </body>
 
 </html>
