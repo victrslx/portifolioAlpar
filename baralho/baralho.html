@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carta de Baralho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -57,14 +60,14 @@
             background-color: white;
             padding: 10px;
             font-size: 24px;
-            font-family: Arial, sans-serif;
+            font-family: "Pixelify Sans", sans-serif;
         }
 
         .naipe {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(0.15);
+            transform: translate(-50%, -50%) scale(0.3);
         }
 
         .carta-back {
@@ -79,15 +82,15 @@
             position: absolute;
             top: 10%;
             left: 2%;
-            transform: translate(-20%) rotate(90deg);
+            transform: translate(-30%) rotate(90deg);
         }
 
         .carta-right {
             font-size: 24px;
             position: absolute;
             top: 80%;
-            right: -5%;
-            transform: translateY(-10%) rotate(-90deg);
+            right: -10%;
+            transform: translateY(-18%) rotate(-90deg);
         }
     </style>
 </head>
@@ -102,7 +105,7 @@
         <div class="carta-inner">
             <div class="carta-front">
                 <div class="carta-left">joker</div>
-                <img src="./assets/images/joker.png" class="naipe">
+                <img src="./assets/images/joker-pixel.png" class="naipe">
                 <div class="carta-right">joker</div>
             </div>
             <div class="carta-back"></div>
