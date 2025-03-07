@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #1f60ac;
+        }
+
+        .box {
+            color: white;
+            background-color: rgb(52, 211, 211);
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0) scale(0) skew(20deg, 20deg);
+            /* transform: scale(0); */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">Olá</div>
+</body>
+
+</html>
