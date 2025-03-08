@@ -1,11 +1,9 @@
-// Importa os módulos necessários do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script carregado");
 
-    // Busca a configuração do Firebase do backend com autenticação
     fetch('https://firebase-backend-production-9ea4.up.railway.app/firebase-config', {
         headers: {
             'Authorization': 'Bearer f7D9gK!xZ@3pQvLr#T1mY^bW2sA&5oU8'
@@ -18,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return response.json();
         })
         .then(config => {
-            // Inicializa o Firebase com a configuração obtida
             const app = initializeApp(config);
             const db = getFirestore(app);
 
@@ -50,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     alert("Mensagem enviada com sucesso!");
 
-                    // Reseta o formulário corretamente
                     const form = document.getElementById("contact-form");
                     if (form) {
                         form.reset();
