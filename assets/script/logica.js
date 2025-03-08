@@ -1,14 +1,18 @@
+// Importa os módulos necessários do Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script carregado");
 
+    // Busca a configuração do Firebase do backend
     fetch('https://firebase-backend-production-9ea4.up.railway.app/firebase-config')
         .then(response => response.json())
         .then(config => {
-            console.log('Configuração do Firebase carregada:', config);
 
             // Inicializa o Firebase com a configuração obtida
-            const app = firebase.initializeApp(config);
-            const db = firebase.firestore();
+            const app = initializeApp(config);
+            const db = getFirestore(app);
 
             document.querySelector(".submit-btn").addEventListener("click", async function (e) {
                 e.preventDefault();
@@ -26,14 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 try {
-                    await db.collection("contacts").add({
+                    await addDoc(collection(db, "contacts"), {
                         firstName,
                         lastName,
                         email,
                         phone,
                         topic,
                         message,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        timestamp: serverTimestamp()
                     });
 
                     alert("Mensagem enviada com sucesso!");
@@ -53,4 +57,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         })
         .catch(error => console.error('Erro ao buscar configuração:', error));
+    const links = document.querySelectorAll('.site-header-nav ul li a');
+    links.forEach(link => {
+        link.addEventListener('click', function () {
+            links.forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = document.querySelector('.dropbtn');
+
+    dropbtn.addEventListener('click', function (event) {
+        event.stopPropagation();
+        dropdown.classList.toggle('show');
+    });
+
+    window.addEventListener('click', function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+        }
+    });
+
+    document.querySelectorAll('.expertise-card').forEach(card => {
+        card.addEventListener('click', function () {
+            window.location.href = this.getAttribute('data-url');
+        });
+    });
 });
