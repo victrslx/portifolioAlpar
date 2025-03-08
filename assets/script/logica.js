@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script carregado");
 
-    fetch('https://meu-servidor-railway.app/firebase-config')
+    fetch('https://firebase-backend-production-9ea4.up.railway.app/firebase-config')
         .then(response => response.json())
         .then(config => {
             console.log('Configuração do Firebase carregada:', config);
