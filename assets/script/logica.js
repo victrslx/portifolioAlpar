@@ -5,11 +5,19 @@ import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.g
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script carregado");
 
-    // Busca a configuração do Firebase do backend
-    fetch('https://firebase-backend-production-9ea4.up.railway.app/firebase-config')
-        .then(response => response.json())
+    // Busca a configuração do Firebase do backend com autenticação
+    fetch('https://firebase-backend-production-9ea4.up.railway.app/firebase-config', {
+        headers: {
+            'Authorization': 'Bearer f7D9gK!xZ@3pQvLr#T1mY^bW2sA&5oU8'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Acesso negado! Verifique seu token.');
+            }
+            return response.json();
+        })
         .then(config => {
-
             // Inicializa o Firebase com a configuração obtida
             const app = initializeApp(config);
             const db = getFirestore(app);
@@ -57,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         })
         .catch(error => console.error('Erro ao buscar configuração:', error));
+
     const links = document.querySelectorAll('.site-header-nav ul li a');
     links.forEach(link => {
         link.addEventListener('click', function () {
