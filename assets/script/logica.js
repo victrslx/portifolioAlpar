@@ -1,16 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAPhvZ82Kzvg6Z0Vi2XLZsZO7BB32bR1WU",
-    authDomain: "portifolio-alpar.firebaseapp.com",
-    projectId: "portifolio-alpar",
-    storageBucket: "portifolio-alpar.firebasestorage.app",
-    messagingSenderId: "885201159652",
-    appId: "1:885201159652:web:3c456616679bdf8d62f3f1",
-    measurementId: "G-J8HG60CDBD"
-};
+import firebaseConfig from './config.js';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
