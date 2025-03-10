@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #3a3737;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+            font-size: 50px;
+            gap: 16px;
+            flex-direction: column;
+        }
+
+        .box {
+            font-size: large;
+            color: white;
+            background-color: rgb(52, 211, 211);
+            opacity: 0.8;
+            width: 50px;
+            height: 50px;
+            box-shadow: 4px 4px 4px 0px rgba(130, 195, 238, 0.5);
+            text-shadow: #3a3737 2px 2px 2px;
+            /* transform: scale(0); */
+        }
+
+        .box:hover {
+            background-color: red;
+        }
+
+        .box:active {
+            background-color: green;
+            box-shadow: 3px 3px 3px 0px inset rgba(24, 24, 24, 0.5);
+        }
+
+        input:focus {
+            color: red;
+        }
+
+        /* .box:nth-child(even) {
+            background-color: rgb(208, 255, 0);
+        }
+
+        .box:nth-child(even):hover {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .box:nth-child(even):active {
+            background-color: rgb(0, 255, 0);
+        }
+
+        .box:not(.especial) {
+            background-color: rgb(0, 4, 255);
+        }
+
+        .box:not(.especial):hover {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .box:not(.especial):active {
+            background-color: rgb(0, 255, 0);
+        }
+
+        .box:nth-child(4)::before {
+            content: open-quote;
+            color: #000;
+        }
+
+        .box:nth-child(4)::after {
+            color: #000;
+            content: close-quote;
+        } */
+        .quote::before {
+            content: open-quote;
+            color: #000;
+        }
+
+        .quote::after {
+            content: close-quote;
+            color: #000;
+        }
+
+        .speak {
+            border-radius: 50%;
+            padding: 16px;
+            position: relative;
+            box-shadow: none;
+        }
+
+        .speak::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgb(52, 211, 211);
+            bottom: 0;
+            right: 0;
+            z-index: -2;
+            border-radius: 50%;
+            box-shadow: 4px 4px 4px 0px rgba(130, 195, 238, 0.5);
+        }
+
+        .speak::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgb(52, 211, 211);
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            box-shadow: 4px 4px 4px 0px rgba(130, 195, 238, 0.5);
+            transform: rotate(20deg) translate(-5px, -6px) skew(45deg);
+        }
+
+        .speak:hover::before {
+            background-color: red;
+        }
+
+        .speak:hover::after {
+            background-color: red;
+        }
+
+        .line::first-line {
+            background-color: red;
+        }
+
+        .letter::first-letter {
+            color: red;
+        }
+
+        ::selection {
+            background-color: rgb(89, 0, 255);
+            color: rgb(243, 111, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box especial quote">Olá</div>
+    <div class="box especial speak">Boa</div>
+    <div class="box line">Tarde</div>
+    <div class="box especial letter">Nengue</div>
+    <input type="text" placeholder="Digite aqui">
+</body>
+
+</html>

@@ -13,6 +13,11 @@ body {
     background-color: #ffffff;
 }
 
+::selection {
+    background: #6a5acd;
+    color: #fff;
+}
+
 /* primeira */
 .site-header {
     display: flex;
@@ -311,6 +316,16 @@ textarea {
     border: 2px solid #5a4bbdb7;
     border-radius: 5px;
     font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border: 2px solid #3c2e97b7;
+    color: #333;
+    outline: none;
+    box-shadow: 0 0 10px rgba(90, 75, 189, 0.5);
 }
 
 textarea {
