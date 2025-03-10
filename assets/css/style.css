@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -18,7 +17,7 @@ body {
     color: #fff;
 }
 
-/* primeira */
+/* Primeira seção */
 .site-header {
     display: flex;
     align-items: center;
@@ -59,7 +58,6 @@ body {
     text-decoration: none;
     color: #000000;
 }
-
 
 .site-header-nav ul li a.active {
     color: #6a5acd;
@@ -183,8 +181,7 @@ h1 {
     background-color: #5a4bbd;
 }
 
-/* segunda section */
-
+/* Segunda seção */
 .expertise {
     padding: 60px 20px;
     text-align: center;
@@ -260,8 +257,7 @@ h1 {
     text-decoration-color: #6a5acd;
 }
 
-/* terceira section */
-
+/* Terceira seção */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -362,12 +358,94 @@ textarea {
     background: #5c17b0;
 }
 
-/* quarta section */
-
+/* Quarta seção */
 .site-footer {
     background: #5a4bbd;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
     margin-top: 7%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.social-icons {
+    scale: 0.6;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.site-footer a {
+    color: #fff;
+}
+
+/* Media queries para telas menores */
+@media (max-width: 768px) {
+    .site-header img {
+        display: none;
+    }
+
+    .site-header {
+        font-size: 60%;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 30%;
+    }
+
+    .text-content {
+        padding: 0;
+    }
+
+    .image-box img {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .my-name {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        display: none;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        scale: 0.5;
+    }
 }
