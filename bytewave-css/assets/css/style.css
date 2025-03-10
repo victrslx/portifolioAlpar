@@ -207,6 +207,11 @@ main {
     font-size: 34px;
     font-weight: bold;
     color: #888;
+
+    @media screen and (max-width: 768px) {
+        font-size: 1.4rem;
+
+    }
 }
 
 .client-content {
@@ -680,7 +685,7 @@ textarea:focus {
     overflow-x: auto;
 
     @media screen and (max-width: 1017px) {
-        max-width: 0;
+        display: none;
 
     }
 }
