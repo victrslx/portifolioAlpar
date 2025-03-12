@@ -602,16 +602,30 @@ footer nav {
 .menu-list {
     display: none;
     list-style: none;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     background: #333;
     position: absolute;
-    top: 50px;
-    right: 0;
+    top: 6rem;
+    right: 2.5rem;
     width: 200px;
     border-radius: 5px;
     transition: background 0.2s linear;
+    box-shadow: 0 0 15px 5px rgb(22 138 60 / 57%);
 }
+
+.menu-list::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #333;
+}
+
 
 .menu-list li {
     padding: 10px;
