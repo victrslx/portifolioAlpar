@@ -191,7 +191,7 @@ main {
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .blog-grid {
@@ -240,7 +240,8 @@ main {
 }
 
 .content {
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
+    margin-left: 1rem;
 }
 
 .img-m {
@@ -260,6 +261,9 @@ main {
 
 .author {
     font-size: 1.5rem;
+    text-align: left;
+    color: #168a3c;
+    font-weight: bold;
 }
 
 .title-post {
@@ -293,7 +297,9 @@ main {
 }
 
 .description {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    text-align: left;
+    color: #667085;
 }
 
 .tags {
