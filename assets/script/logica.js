@@ -91,4 +91,5 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = this.getAttribute('data-url');
         });
     });
+
 });

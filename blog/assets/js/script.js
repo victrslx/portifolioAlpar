@@ -26,4 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
       menuList.style.display = "none";
     }
   });
+  document.querySelectorAll('.title-post').forEach(post => {
+    post.addEventListener('click', function () {
+      const postTitle = this.innerText;
+      localStorage.setItem('selectedPost', postTitle);
+      window.location.href = './pages/post.html';
+    });
+  });
 });

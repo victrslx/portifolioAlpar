@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+@font-face {
+    font-family: 'Sprite Graffiti';
+    src: url('../fonts/Sprite\ Graffiti.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --primary-color: #24ac51;
+    --secondary-color: #333;
+    font-size: 62.5%;
+}
+
+::selection {
+    background: #24ac51;
+    color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+    color: #333;
+    margin: 0;
+    transition: background 0.2s linear;
+}
+
+body header a {
+    color: #333;
+}
+
+body.dark,
+body.dark header a {
+    color: #fff;
+}
+
+body.dark .logo {
+    color: #eee;
+    text-shadow: 0 0 0.5rem rgba(12, 12, 12, 0.801);
+}
+
+body.dark,
+body.dark header {
+    background-color: #1b1d23;
+}
+
+header {
+    padding: 1rem 2rem;
+    background: white;
+    width: 100%;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    font-size: 4.9rem;
+    font-family: 'Sprite Graffiti', sans-serif;
+}
+
+.bold-text {
+    color: #24ac51;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #24ac51;
+}
+
+.nav-links a {
+    text-decoration: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #1b863f;
+    width: 6rem;
+    height: 2.9rem;
+    border-radius: 5rem;
+    position: relative;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {
+    color: #ffffff;
+}
+
+.fa-sun {
+    color: #ffffff;
+}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 2.2rem;
+    height: 2.1rem;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.4rem;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.menu {
+    display: none;
+    --s: 3rem;
+    --c: rgb(43, 43, 43);
+    height: var(--s);
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    border-inline: calc(var(--s) / 2) solid #0000;
+    box-sizing: content-box;
+    --_g1: linear-gradient(var(--c) 20%, #0000 0 80%, var(--c) 0) no-repeat content-box border-box;
+    --_g2: radial-gradient(circle closest-side at 50% 12.5%, var(--c) 95%, #0000) repeat-y content-box border-box;
+    background: var(--_g2) left var(--_p, 0px) top, var(--_g1) left calc(var(--s) / 10 + var(--_p, 0px)) top, var(--_g2) right var(--_p, 0px) top, var(--_g1) right calc(var(--s) / 10 + var(--_p, 0px)) top;
+    background-size: 20% 80%, 40% 100%;
+    position: relative;
+    clip-path: inset(0 25%);
+    mask: linear-gradient(90deg, #0000, #000 25% 75%, #0000);
+    -webkit-mask: linear-gradient(90deg, #0000, #000 25% 75%, #0000);
+    cursor: pointer;
+    transition: background-position .3s var(--_s, .3s), clip-path 0s var(--_s, .6s);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.menu-list {
+    display: none;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    background: #333;
+    position: absolute;
+    top: 6rem;
+    right: 2.5rem;
+    width: 200px;
+    border-radius: 5px;
+    transition: background 0.2s linear;
+}
+
+.menu-list li {
+    padding: 10px;
+}
+
+.menu-list a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.margin-check {
+    margin-left: 6rem;
+}
+
+main {
+    /* flex: 1; */
+    /* padding: 2rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 6rem;
+    grid-area: main;
+    /* padding: 20px; */
+    border-radius: 10px;
+}
+
+aside {
+    grid-area: aside;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: auto;
+    grid-template-areas: "aside main";
+    gap: 20px;
+    /* max-width: 1200px; */
+    /* margin: auto; */
+    /* justify-items: center; */
+    padding: 4% 0%;
+}
+
+.all-posts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2% 15%;
+}
+
+.blog-card {
+    overflow: hidden;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.img-all {
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    /* padding: 1.5rem; */
+    margin-left: 1rem;
+}
+
+.author {
+    font-size: 1.5rem;
+    text-align: left;
+    color: #168a3c;
+    font-weight: bold;
+}
+
+.title-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-post {
+    margin: 1rem 0;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: underline;
+}
+
+.title-flex div {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.description {
+    font-size: 1.5rem;
+    text-align: left;
+    color: #667085;
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tags span {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.tags-d {
+    background: #ecfdf3;
+    color: #027948;
+}
+
+.tags-p {
+    background: #f0f9ff;
+    color: #026aa2;
+}
+
+footer {
+    margin-top: 6%;
+    background-color: #ffffff;
+    color: #333;
+    padding: 2rem 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.336);
+}
+
+footer nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.footer-links,
+.social-links {
+    justify-content: center;
+}
+
+.footer-links a,
+.social-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.copy {
+    font-size: 1.5rem;
+}
+
+.footer-links,
+.social-links {
+    justify-content: center;
+}
+
+.footer-links a,
+.social-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
