@@ -43,7 +43,16 @@ body header a {
 
 body.dark,
 body.dark header {
-    background-color: #292c35;
+    background-color: #1b1d23;
+}
+
+body.dark .title {
+    border-top: 0.1rem solid #ffffff;
+    border-bottom: 0.1rem solid #ffffff;
+}
+
+body.dark .description {
+    color: #b5b5b5;
 }
 
 body.dark .logo {
@@ -206,6 +215,7 @@ main {
         "large-bottom large-bottom";
     width: 100%;
     max-width: 166rem;
+    margin-bottom: 6rem;
 }
 
 .larger-left {
@@ -300,6 +310,16 @@ main {
     font-size: 1.5rem;
     text-align: left;
     color: #667085;
+}
+
+.all-posts {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    /* padding: 2% 15%; */
 }
 
 .tags {
