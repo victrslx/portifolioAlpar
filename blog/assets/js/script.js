@@ -2,6 +2,10 @@ const checkbox = document.getElementById("checkbox")
 checkbox.addEventListener("change", () => {
   document.body.classList.toggle("dark")
 })
+const checkboxMenu = document.getElementById("checkbox-menu")
+checkboxMenu.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
+})
 
 document.addEventListener('DOMContentLoaded', function () {
   const navLinks = document.querySelectorAll('.nav-link');
@@ -11,5 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
       navLinks.forEach(nav => nav.classList.remove('active'));
       this.classList.add('active');
     });
+  });
+  const menuCheckbox = document.querySelector(".menu");
+  const menuList = document.querySelector(".menu-list");
+
+  menuCheckbox.addEventListener("change", function () {
+    if (this.checked) {
+      menuList.style.display = "block";
+    } else {
+      menuList.style.display = "none";
+    }
   });
 });
