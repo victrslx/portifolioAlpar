@@ -47,8 +47,8 @@ body.dark header {
 }
 
 body.dark .title {
-    border-top: 0.1rem solid #ffffff;
-    border-bottom: 0.1rem solid #ffffff;
+    border-top: 0.1rem solid #168a3c;
+    border-bottom: 0.1rem solid #177a37;
 }
 
 body.dark .description {
@@ -102,6 +102,19 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a.active {
     color: #24ac51;
+}
+
+.subtitle::after {
+    content: '';
+    display: block;
+    width: 6rem;
+    height: 0.4rem;
+    background: #24ac51;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius: 2rem;
 }
 
 nav ul li a::after {
@@ -197,6 +210,7 @@ main {
     padding: 1rem 0;
     width: 100%;
     max-width: 57%;
+    margin-bottom: 6rem;
 }
 
 .subtitle {
@@ -215,7 +229,8 @@ main {
         "large-bottom large-bottom";
     width: 100%;
     max-width: 166rem;
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
+    margin-top: 2rem;
 }
 
 .larger-left {
@@ -313,13 +328,17 @@ main {
 }
 
 .all-posts {
-    margin-top: 8rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    /* padding: 2% 15%; */
+    padding: 2% 15%;
+}
+
+.img-all {
+    width: 100%;
+    height: auto;
 }
 
 .tags {
@@ -358,6 +377,10 @@ main {
 .tags-i {
     background: #fcf3ea;
     color: #bc300a;
+}
+
+body.dark .menu {
+    --c: rgb(255, 255, 255);
 }
 
 .menu {
@@ -507,11 +530,71 @@ main {
     .hidden-text {
         display: block;
     }
+
+    footer .copy {
+        font-size: 1rem;
+    }
+
+    .footer-links a {
+        font-size: 1rem;
+    }
 }
 
 
 @media screen and (max-width: 1700px) {
     .hidden-text {
         display: none;
+    }
+}
+
+body.dark footer {
+    background-color: #1b1d23;
+    color: #fff;
+    box-shadow: 0 0.4rem 0.8rem rgba(3, 255, 16, 0.507);
+}
+
+body.dark footer a {
+    color: #fff;
+}
+
+footer {
+    margin-top: 6%;
+    background-color: #ffffff;
+    color: #333;
+    padding: 2rem 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.336);
+}
+
+footer nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.footer-links,
+.social-links {
+    justify-content: center;
+}
+
+.footer-links a,
+.social-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.copy {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    footer nav {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 }
