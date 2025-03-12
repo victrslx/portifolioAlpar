@@ -611,7 +611,6 @@ footer nav {
     width: 200px;
     border-radius: 5px;
     transition: background 0.2s linear;
-    box-shadow: 0 0 15px 5px rgb(22 138 60 / 57%);
 }
 
 .menu-list::before {
@@ -624,6 +623,7 @@ footer nav {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #333;
+    transition: border-bottom 0.2s linear;
 }
 
 
@@ -655,4 +655,9 @@ footer nav {
 
 body.dark .menu-list {
     background: #1d1f25;
+    box-shadow: 0 0 15px 5px rgb(22 138 60 / 57%);
+}
+
+body.dark .menu-list::before {
+    border-bottom: 10px solid #1d1f25;
 }
