@@ -476,6 +476,9 @@ footer nav {
         padding: 10% 2%;
     }
 
+    body .post-code {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -589,5 +592,5 @@ body.dark .menu-list::before {
 .post-code {
     background-color: #24262e;
     color: #28bc5a;
-    max-width: 60%;
+    max-width: 46%;
 }
