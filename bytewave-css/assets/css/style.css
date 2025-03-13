@@ -242,27 +242,30 @@ main {
 }
 
 @media screen and (max-width: 1480px) {
-    .text-client {
-        font-size: 30;
-    }
 
     .text-client h3 {
-        font-size: 43px;
+        font-size: 1.4rem;
     }
 
     .text-client p {
-        font-size: 15px;
+        font-size: 70%;
+    }
+
+    a .btn-contact {
+        font-size: 70%;
+        margin-top: 5px;
+        padding: 4px 6px;
     }
 
 }
 
-.text-client h3 {
+.text-client-h3 {
     font-size: 53px;
     font-weight: bold;
     max-width: 53%;
 }
 
-.text-client p {
+.text-client-p {
     margin-top: 15px;
     font-size: 21px;
 }
@@ -302,6 +305,17 @@ main {
 
     .text-client p {
         font-size: 1rem;
+    }
+
+    .text-client .btn-contact {
+        margin-top: 21px;
+        background-color: white;
+        color: #0882dc;
+        font-weight: bold;
+        padding: 14px 25px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
     }
 }
 
