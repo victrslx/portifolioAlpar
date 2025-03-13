@@ -233,6 +233,25 @@ main {
     padding-left: 34px;
 }
 
+@media screen and (max-width: 1700px) {
+    .text-client {
+        width: 67%;
+    }
+
+
+}
+
+@media screen and (max-width: 1480px) {
+    .text-client h3 {
+        font-size: 43px;
+    }
+
+    .text-client p {
+        font-size: 15px;
+    }
+
+}
+
 .text-client h3 {
     font-size: 53px;
     font-weight: bold;
