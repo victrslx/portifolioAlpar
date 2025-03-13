@@ -52,7 +52,7 @@
         <aside>
             <section class="all-posts">
                 <article class="blog-card">
-                    <img class="img-all" src="./assets/img/ia.png" alt="Blog image">
+                    <img class="img-all" src="../assets/img/ia.png" alt="Blog image">
                     <div class="content">
                         <p class="author">joão • 1 Jan 2025</p>
                         <div class="title-flex">
@@ -67,7 +67,7 @@
                     </div>
                 </article>
                 <article class="blog-card">
-                    <img class="img-all" src="./assets/img/moni.png" alt="Blog image">
+                    <img class="img-all" src="../assets/img/moni.png" alt="Blog image">
                     <div class="content">
                         <p class="author">joão • 1 Jan 2025</p>
                         <div class="title-flex">
@@ -82,7 +82,7 @@
                     </div>
                 </article>
                 <article class="blog-card">
-                    <img class="img-all" src="./assets/img/moni.png" alt="Blog image">
+                    <img class="img-all" src="../assets/img/moni.png" alt="Blog image">
                     <div class="content">
                         <p class="author">joão • 1 Jan 2025</p>
                         <div class="title-flex">
@@ -97,7 +97,7 @@
                     </div>
                 </article>
                 <article class="blog-card">
-                    <img class="img-all" src="./assets/img/moni.png" alt="Blog image">
+                    <img class="img-all" src="../assets/img/moni.png" alt="Blog image">
                     <div class="content">
                         <p class="author">joão • 1 Jan 2025</p>
                         <div class="title-flex">
@@ -112,7 +112,7 @@
                     </div>
                 </article>
                 <article class="blog-card">
-                    <img class="img-all" src="./assets/img/moni.png" alt="Blog image">
+                    <img class="img-all" src="../assets/img/moni.png" alt="Blog image">
                     <div class="content">
                         <p class="author">joão • 1 Jan 2025</p>
                         <div class="title-flex">
@@ -127,7 +127,7 @@
                     </div>
                 </article>
                 <article class="blog-card">
-                    <img class="img-all" src="./assets/img/moni.png" alt="Blog image">
+                    <img class="img-all" src="../assets/img/moni.png" alt="Blog image">
                     <div class="content">
                         <p class="author">joão • 1 Jan 2025</p>
                         <div class="title-flex">
@@ -169,22 +169,66 @@
                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
         </nav>
     </footer>
+    <script src="../assets/js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const postTitle = localStorage.getItem('selectedPost'); // Recupera o título do post
 
             const postData = {
                 "css na pratica": {
-                    title: "CSS na Prática",
-                    image: "css-image.jpg",
+                    title: "CSS na Prátca",
+                    image: "../assets/img/cadeira.png",
                     content: `
-                <p>CSS (Cascading Style Sheets) é usado para estilizar páginas da web.</p>
-                <h2>O que é CSS?</h2>
-                <p>CSS é uma linguagem de estilo usada para definir cores, fontes, espaçamentos e layout.</p>
-                <img src="css-example.jpg" alt="Exemplo CSS">
-                <h2>Exemplo de Código:</h2>
-                <p>Aqui está um exemplo de código CSS simples:</p>
-                <pre><code>body { background-color: #222; color: white; }</code></pre>
+              <article class="post">
+    <h1 class="post-title">Introdução ao CSS: Guia Completo</h1>
+    
+    <p class="post-content">CSS (Cascading Style Sheets) é uma linguagem de estilo utilizada para definir a aparência e o layout de páginas web. Com CSS, podemos alterar cores, fontes, tamanhos, margens, espaçamentos e muito mais, tornando nossos sites visualmente atraentes e responsivos.</p>
+    
+    <h2 class="post-subtitle">O que é CSS?</h2>
+    <p class="post-content">CSS é uma linguagem usada para estilizar documentos HTML. Ele funciona separando o conteúdo da apresentação, permitindo que desenvolvedores modifiquem a aparência de uma página sem alterar seu HTML.</p>
+    
+    <img src="../assets/img/css_example.png" alt="Exemplo de CSS" class="post-image">
+    
+    <h2 class="post-subtitle">Como o CSS funciona?</h2>
+    <p class="post-content">CSS funciona através de seletores e regras. Um seletor define quais elementos HTML serão estilizados, enquanto as regras definem os estilos aplicados a esses elementos.</p>
+    
+    <h2 class="post-subtitle">Tipos de CSS</h2>
+    <p class="post-content">Existem três formas de aplicar CSS em um site:</p>
+    <ul class="post-list">
+        <li><strong>CSS Inline:</strong> Adicionado diretamente no elemento HTML usando o atributo <code>style</code>.</li>
+        <li><strong>CSS Interno:</strong> Definido dentro de um bloco <code>&lt;style&gt;</code> dentro do <code>&lt;head&gt;</code> do documento HTML.</li>
+        <li><strong>CSS Externo:</strong> Criado em um arquivo separado <code>.css</code> e vinculado ao HTML com <code>&lt;link&gt;</code>.</li>
+    </ul>
+    
+    <h2 class="post-subtitle">Exemplo de Código CSS</h2>
+    <p class="post-content">Aqui está um exemplo básico de código CSS:</p>
+    <pre class="post-code"><code>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+    </code></pre>
+    
+    <h2 class="post-subtitle">Propriedades CSS Comuns</h2>
+    <p class="post-content">Aqui estão algumas das propriedades CSS mais usadas:</p>
+    <ul class="post-list">
+        <li><code>color</code>: Define a cor do texto.</li>
+        <li><code>background-color</code>: Define a cor de fundo de um elemento.</li>
+        <li><code>font-size</code>: Define o tamanho da fonte.</li>
+        <li><code>margin</code>: Define o espaço externo ao redor do elemento.</li>
+        <li><code>padding</code>: Define o espaço interno dentro do elemento.</li>
+    </ul>
+    
+    <h2 class="post-subtitle">Conclusão</h2>
+    <p class="post-content">CSS é uma ferramenta essencial para o desenvolvimento web. Ele permite a criação de sites bonitos, organizados e responsivos. Com o tempo e prática, você poderá criar interfaces incríveis!</p>
+</article>
+
             `
                 },
                 "js na pratica": {
