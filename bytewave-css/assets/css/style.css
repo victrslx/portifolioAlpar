@@ -242,6 +242,10 @@ main {
 }
 
 @media screen and (max-width: 1480px) {
+    .text-client {
+        font-size: 30;
+    }
+
     .text-client h3 {
         font-size: 43px;
     }
@@ -281,7 +285,6 @@ main {
 @media (max-width: 768px) {
     .client-content {
         flex-direction: column;
-        text-align: center;
     }
 
     .client-content img {
@@ -290,7 +293,7 @@ main {
 
     .text-client {
         width: 100%;
-        padding-left: 0;
+        margin-bottom: 10px;
     }
 
     .text-client h3 {
