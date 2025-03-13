@@ -17,43 +17,87 @@ body {
 
 /* Primeira seção */
 .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     width: 100%;
+    padding: 10px 20px;
+    background: #ffffff;
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
-    background-color: #ffffff;
+.container-inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
-.navbar-brand img {
-    width: 50px;
+.logo {
+    width: 3%;
 }
 
-.navbar-nav .nav-item .nav-link {
+.site-header-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header-nav ul li {
+    margin-right: 20px;
+}
+
+.site-header-nav ul li a {
     font-size: 1.2em;
+    text-decoration: none;
+    color: #000000;
+}
+
+.site-header-nav ul li a.active {
     color: #6a5acd;
-    transition: color 0.3s;
 }
 
-.navbar-nav .nav-item .nav-link:hover,
-.navbar-nav .nav-item .nav-link.active {
-    color: #4b0082;
+.site-header-nav ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 160px;
 }
 
-.dropdown-menu .dropdown-item {
-    color: #6a5acd;
-    transition: background-color 0.3s;
+.site-header-nav ul li .dropdown-content a {
+    color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
-.dropdown-menu .dropdown-item:hover {
+.site-header-nav ul li .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
-/* Seção do perfil */
+.site-header-nav ul li.show .dropdown-content {
+    display: block;
+}
+
+.container-inner {
+    width: 100%;
+    margin: 0 auto 0 0;
+    justify-content: center;
+    padding: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+    padding: 0;
+}
+
 .profile-container {
     display: flex;
     align-items: center;
@@ -334,7 +378,7 @@ textarea {
     color: #fff;
 }
 
-/* Media */
+/* Media queries para telas menores */
 @media (max-width: 768px) {
     .image-box {
         width: 50%;
