@@ -30,7 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
     post.addEventListener('click', function () {
       const postTitle = this.innerText;
       localStorage.setItem('selectedPost', postTitle);
-      window.location.href = './pages/post.html';
+      if (window.location.pathname.includes('/pages/post.html')) {
+        window.location.href = './post.html';
+      }
+      else {
+        window.location.href = './pages/post.html';
+      }
     });
   });
 });
