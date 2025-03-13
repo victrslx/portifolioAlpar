@@ -234,15 +234,50 @@
                 },
                 "js na pratica": {
                     title: "JavaScript na Prática",
-                    image: "js-image.jpg",
+                    image: "../assets/img/cadeira.png",
                     content: `
-                <p>JavaScript é uma linguagem de programação usada para interatividade na web.</p>
-                <h2>O que é JavaScript?</h2>
-                <p>Com JS, podemos criar animações, validações de formulários e muito mais.</p>
-                <img src="js-example.jpg" alt="Exemplo JS">
-                <h2>Exemplo de Código:</h2>
-                <pre><code>document.getElementById("demo").innerText = "Olá, Mundo!";</code></pre>
-            `
+                <article class="post">
+    <h1 class="post-title">Introdução ao JavaScript: Guia Completo</h1>
+    
+    <p class="post-content">JavaScript é uma linguagem de programação essencial para o desenvolvimento web. Com ele, podemos criar interatividade, dinamismo e tornar as páginas mais dinâmicas, respondendo a eventos do usuário.</p>
+    
+    <h2 class="post-subtitle">O que é JavaScript?</h2>
+    <p class="post-content">JavaScript (JS) é uma linguagem de programação de alto nível, interpretada e amplamente utilizada para criar interações dinâmicas em páginas web. Ele pode ser usado tanto no frontend quanto no backend.</p>
+    
+    <img src="../assets/img/js.png" alt="Exemplo de JavaScript" class="post-image">
+    
+    <h2 class="post-subtitle">Como o JavaScript funciona?</h2>
+    <p class="post-content">JavaScript é executado no navegador do usuário, permitindo a manipulação do HTML e CSS dinamicamente. Ele usa eventos, funções e variáveis para modificar o comportamento da página.</p>
+    
+    <h2 class="post-subtitle">Como incluir JavaScript em um site?</h2>
+    <p class="post-content">Existem três maneiras de adicionar JavaScript a um site:</p>
+    <ul class="post-list">
+        <li><strong>JavaScript Inline:</strong> Código adicionado diretamente dentro de um atributo <code>onclick</code> ou similar.</li>
+        <li><strong>JavaScript Interno:</strong> Código dentro de um bloco <code>&lt;script&gt;</code> no HTML.</li>
+        <li><strong>JavaScript Externo:</strong> Arquivo separado <code>.js</code> vinculado ao HTML com <code>&lt;script src="arquivo.js"&gt;</code>.</li>
+    </ul>
+    
+    <h2 class="post-subtitle">Exemplo de Código JavaScript</h2>
+    <p class="post-content">Aqui está um exemplo básico de JavaScript que exibe um alerta quando a página é carregada:</p>
+    <pre class="post-code"><code>
+        document.addEventListener("DOMContentLoaded", function() {
+            alert("Olá, bem-vindo ao JavaScript!");
+        });
+    </code></pre>
+    
+    <h2 class="post-subtitle">Conceitos Fundamentais do JavaScript</h2>
+    <p class="post-content">Alguns dos principais conceitos do JavaScript incluem:</p>
+    <ul class="post-list">
+        <li><code>Variáveis</code>: Armazenam valores (ex: <code>var, let, const</code>).</li>
+        <li><code>Funções</code>: Blocos de código reutilizáveis (ex: <code>function minhaFuncao() {}</code>).</li>
+        <li><code>Eventos</code>: Permitem interatividade (ex: <code>onclick, onmouseover</code>).</li>
+        <li><code>Manipulação do DOM</code>: Modifica elementos HTML via JavaScript.</li>
+        <li><code>Objetos</code>: Estruturas de dados para organizar informações.</li>
+    </ul>
+    
+    <h2 class="post-subtitle">Conclusão</h2>
+    <p class="post-content">JavaScript é uma linguagem essencial para o desenvolvimento web moderno. Com sua versatilidade, é possível criar aplicações interativas e dinâmicas. Aprender JS é um grande passo para se tornar um desenvolvedor completo!</p>
+</article>`
                 },
                 "html na pratica": {
                     title: "HTML na Prática",
