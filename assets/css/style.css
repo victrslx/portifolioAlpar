@@ -535,6 +535,10 @@ textarea {
         display: none;
     }
 
+    .logo {
+        width: 12%;
+    }
+
     .menu-icon {
         display: flex;
     }
