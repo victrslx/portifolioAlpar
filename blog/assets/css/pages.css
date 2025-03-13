@@ -176,6 +176,7 @@ nav ul li a.active::after {
 main {
     grid-area: main;
     border-radius: 10px;
+    padding: 0% 3%;
 }
 
 aside {
@@ -189,7 +190,7 @@ aside {
     grid-template-rows: auto;
     grid-template-areas: "aside main";
     gap: 10rem;
-    padding: 4% 2%;
+    padding: 5% 2%;
 }
 
 .blog-card {
@@ -403,11 +404,9 @@ body.dark .menu {
     .footer-links a {
         font-size: 1rem;
     }
-}
 
-@media screen and (max-width: 1700px) {
-    .hidden-text {
-        display: none;
+    #post-image {
+        width: 100%;
     }
 
     aside {
@@ -417,14 +416,14 @@ body.dark .menu {
     .container {
         grid-template-columns: 1fr;
         grid-template-areas: "main";
-        padding: 15% 2%;
+        padding: 9% 2%;
     }
+}
 
-    main article img {
-        width: 70%;
-        align-items: center;
+@media screen and (max-width: 1700px) {
+    .hidden-text {
+        display: none;
     }
-
 }
 
 body.dark footer {
@@ -472,10 +471,25 @@ footer nav {
     font-size: 1.5rem;
 }
 
+@media screen and (max-width: 1289px) {
+    body .container {
+        padding: 10% 2%;
+    }
+
+}
+
 @media (max-width: 768px) {
     footer nav {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    #post-content {
+        font-size: 1rem;
+    }
+
+    body .container {
+        padding: 15% 2%;
     }
 }
 
@@ -546,12 +560,34 @@ body.dark .menu-list::before {
     margin: 2rem 0;
 }
 
-#post-content {
+.post-before {
     font-size: 1.5rem;
     line-height: 2.5rem;
     margin: 2rem 0;
+    text-align: left;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .postslabla {
     text-align: center;
+}
+
+.post-list {
+    padding: 0% 3%;
+}
+
+.post-image {
+    width: 100%;
+    height: 5%;
+}
+
+.post-code {
+    background-color: #24262e;
+    color: #28bc5a;
+    max-width: 60%;
 }
