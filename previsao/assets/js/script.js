@@ -27,21 +27,21 @@ async function callApi() {
 
         const icon = data.weather[0].icon;
         const temp = Math.round(data.main.temp);
-        const feelsLike = data.main.feels_like;
-        const tempMin = data.main.temp_min;
-        const tempMax = data.main.temp_max;
+        const feelsLike = Math.round(data.main.feels_like);
+        const tempMin = Math.round(data.main.temp_min);
+        const tempMax = Math.round(data.main.temp_max);
         const humidity = data.main.humidity;
-        const wind = data.wind.speed;
+        const wind = data.wind.speed.toLocaleString('pt-BR');
         cityEl.innerHTML = city;
         const iconUrl = `http://openweathermap.org/img/wn/${icon}@4x.png`;
         iconEl.src = iconUrl;
 
         tempEl.innerHTML = `${temp}°`;
-        feelsLikeEl.innerHTML = Math.round(data.main.feels_like);
-        tempMinEl.innerHTML = Math.round(data.main.temp_min);
-        tempMaxEl.innerHTML = Math.round(data.main.temp_max);
-        humidityEl.innerHTML = data.main.humidity;
-        windTextEl.innerHTML = data.wind.speed.toLocaleString('pt-BR');
+        feelsLikeEl.innerHTML = `${feelsLike}°`;
+        tempMinEl.innerHTML = `${tempMin}°`;
+        tempMaxEl.innerHTML = `${tempMax}°`;
+        humidityEl.innerHTML = `${humidity}%`;
+        windTextEl.innerHTML = `${wind} m/s`;
         windIconEl.style.transform = `rotate(${data.wind.deg}deg)`;
 
         cardEl.classList.add('active');
