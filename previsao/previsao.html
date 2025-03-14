@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- a api a baixo vai ser usada para pegar a previsão do tempo -->
+    <!-- https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key} -->
+
+    <section class="card">
+        <h1>São paulo</h1>
+        <img class="card-icon" src="https://openweathermap.org/img/wn/03d@4x.png" alt="clouds">
+        <h2>26</h2>
+        <p class="feels-like">Sensação térmica dê <span>28</span>°</p>
+        <div class="min-max">
+            <p>Min: <span class="min">26</span>°</p>
+            <p>Max: <span class="max">27</span>°</p>
+        </div>
+        <p class="humidity">Humidade: <span>65</span>%</p>
+        <div class="wind">
+            <i class="fas fa-arrow-up"></i>
+            <p>Velocidade do vento
+                <span>1,54</span>m/s
+            </p>
+        </div>
+    </section>
+    <section class="search-box">
+        <input type="text" class="search" placeholder="Digite o nome da cidade">
+        <button class="btn">Buscar</button>
+    </section>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
