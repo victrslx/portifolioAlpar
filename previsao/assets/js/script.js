@@ -20,7 +20,7 @@ async function callApi() {
     try {
         const city = inputEl.value || 'São Paulo';
 
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=${lang}&units=${units}`);
+        // const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=${lang}&units=${units}`);
         const data = await response.json();
 
         console.log(data);
