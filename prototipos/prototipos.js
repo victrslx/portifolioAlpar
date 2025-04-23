@@ -59,3 +59,29 @@ const soma = numeros3.meuReduce((acumulador, valor) => {
     return acumulador + valor;
 }, 13) //valor inicial
 console.log(soma) // 28
+
+Array.prototype.meuFind = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        if (callback(this[i], i, this)) { //se o callback retornar true, o valor é encontrado
+            return this[i]; //retorna o valor encontrado
+        }
+    }
+    return undefined; //se não encontrar, retorna undefined
+}
+
+const numeros4 = [1, 2, 3, 4, 5];
+const numeroMaiorQue3 = numeros4.meuFind((valor) => {
+    return valor > 3; //se o valor for maior que 3, ele vai ser encontrado
+})
+console.log(numeroMaiorQue3) // 4
+
+Array.prototype.meuForEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        callback(this[i], i, this);
+    }
+}
+
+const numeros5 = [1, 2, 3, 4, 5];
+const numerosImpressos = numeros5.meuForEach((valor, indice) => {
+    console.log(`Valor: ${valor}, Índice: ${indice}`); //imprime o valor e o índice
+})
