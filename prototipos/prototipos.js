@@ -14,7 +14,7 @@ const numerosAoQuadrado = numeros.meuMap((valor, indice, array) => { //callback
 })
 console.log(numerosAoQuadrado) // [1, 4, 9]
 
-// Array.prototype.meuFilter = function (callback) { //qualquer array pode usar esse método
+// Array.prototype.meuFilter = function (callback) { 
 //     const newArray = [];
 //     for (let i = 0; i < this.length; i++) {
 //         if (callback(this[i], i, this)) { // condição do filter 
@@ -38,7 +38,9 @@ Array.prototype.meuFilter = function (callback) {
 
 const numeros2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const numerosPares = numeros2.meuFilter((valor) => {
-    return valor % 2 === 0; // ****condição do filter****
+    return valor % 2 === 0; // ****condição do filter**** // eu estou retornando explicitamente uma expressão booleana: true ou false. por isso o callback se torna booleno. 
+    // Se trocar o return por algo que não devolve um booleano, o resultado não será booleano — mas o filter() ainda funciona, porque ele não exige "ser booleano", ele exige "ser truthy ou falsy".
+    // n % 2 para números ímpares retorna 1 (truthy), n % 2 para pares retorna 0 (falsy), return "qualquer coisa"; // string = truthy
     // se o valor for par, ele vai ser adicionado no newArray
 })
 console.log(numerosPares) // [2, 4, 6, 8, 10]
