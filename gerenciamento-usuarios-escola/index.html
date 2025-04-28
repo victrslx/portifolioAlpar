@@ -18,6 +18,27 @@
         <img ng-if="usuario.tipo === 'Aluno'" src="assets/images/aluno.png" alt="Imagem do Aluno">
         <img ng-if="usuario.tipo === 'Professor'" src="assets/images/professor.png" alt="Imagem do Professor">
     </div>
+    <div>
+        <label for="filtro">Buscar:</label>
+        <input id="filtro" type="text" ng-model="filtro" placeholder="Digite um nome...">
+        <label for="filtroTipo">Filtrar por tipo:</label>
+        <select id="filtroTipo" ng-model="filtroTipo">
+            <option value="">Todos</option>
+            <option value="Aluno">Aluno</option>
+            <option value="Professor">Professor</option>
+        </select>
+    </div>
+    <div ng-controller="UserListController">
+        <h2>Lista de Usuários</h2>
+        <ul>
+            <li ng-repeat="usuario in usuarios | filter:filtro | filter:{ tipo: filtroTipo }">
+                Nome: {{ usuario.nome | uppercase }} - Tipo: {{ usuario.tipo }} - Data de Cadastro: {{
+                usuario.dataCadastro | date:'dd/MM/yyyy' }}
+            </li>
+        </ul>
+        <p>Total de Alunos: {{ (usuarios | filter:{tipo:'Aluno'}).length }}</p>
+        <p>Total de Professores: {{ (usuarios | filter:{tipo:'Professor'}).length }}</p>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>

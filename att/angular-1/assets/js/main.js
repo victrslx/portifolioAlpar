@@ -1,5 +1,5 @@
 const app = angular.module("taskModule", []);
-app.controller("TaskController", function ($scope) {
+app.controller("TaskController", function ($scope, $filter) {
     // $scope.tasks = [
     //     { name: "Task 1", completed: false },
     //     { name: "Task 2", completed: true },
@@ -17,6 +17,10 @@ app.controller("TaskController", function ($scope) {
     //     $scope.tasks.splice(index, 1);
     // };
     $scope.modalActive = false;
+    $scope.showCompletedOnly = false;
+    $scope.incompletedOnly = false;
+    $scope.todayOnly = false;
+    $scope.today = new Date().toLocaleDateString();
 
     $scope.tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
 
@@ -24,27 +28,46 @@ app.controller("TaskController", function ($scope) {
         id: "",
         title: "",
         date: new Date(),
-        dateStr: new Date().toLocaleDateString(),
         checked: false,
     }
 
     $scope.toggleModal = () => {
         $scope.modalActive = !$scope.modalActive;
-
     }
+
+
+    $scope.filterdTasks = () => {
+        let filtered = $filter("filter")(
+            $filter("filter")(
+                $scope.tasks,
+                $scope.showCompletedOnly ? { checked: true } : {}
+            ),
+            $scope.incompletedOnly ? { checked: false } : {}
+        );
+        if ($scope.todayOnly) {
+            const start = new Date();
+            start.setHours(0, 0, 0, 0);
+            const end = new Date();
+            end.setHours(23, 59, 59, 999);
+            filtered = filtered.filter((task) => {
+                const taskDate = new Date(task.date);
+                return (taskDate.getTime() >= start.getTime() && taskDate.getTime() <= end.getTime());
+            });
+        }
+        return filtered;
+    }
+
     $scope.handleSubmitAddTask = () => {
         const title = $scope.taskInput.title
         const date = $scope.taskInput.date
         if (!title || !date) {
             alert("Preencha o campo de tarefa!");
             return;
-
         }
         $scope.tasks.push({
             id: Math.random().toString(36).substring(2, 9),
             title: title,
             date: date,
-            dateStr: date.toLocaleDateString(),
             checked: false,
         });
 
@@ -59,7 +82,7 @@ app.controller("TaskController", function ($scope) {
         localStorage.setItem("tasks", JSON.stringify($scope.tasks));
     }
 
-    $scope.removeTask = (currentTask) => {
+    $scope.deleteTask = (currentTask) => {
         $scope.tasks = $scope.tasks.filter((task) => task.id !== currentTask.id);
         localStorage.setItem("tasks", JSON.stringify($scope.tasks));
     }
