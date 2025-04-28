@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="schoolApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Usuários</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body ng-controller="AppController">
+    <h1 ng-bind="mensagem"></h1>
+    <div>
+        <p>Nome: {{ usuario.nome }}</p>
+        <p>Tipo: {{ usuario.tipo }}</p>
+    </div>
+    <div>
+        <img ng-if="usuario.tipo === 'Aluno'" src="assets/images/aluno.png" alt="Imagem do Aluno">
+        <img ng-if="usuario.tipo === 'Professor'" src="assets/images/professor.png" alt="Imagem do Professor">
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

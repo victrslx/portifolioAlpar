@@ -43,7 +43,9 @@ class CentralDeLuzes {
         } else {
             this.ligar(comodo);
         }
+        console.log(this.luzes[comodo]);
     }
+
 
     mostrarPopup(mensagem) {
         const popup = document.createElement("div");
