@@ -1,5 +1,6 @@
-const app = angular.module("taskModule", []);
-app.controller("TaskController", function ($scope, $filter) {
+
+app.controller("TaskController", function ($scope, $filter, TaskService) {
+
     // $scope.tasks = [
     //     { name: "Task 1", completed: false },
     //     { name: "Task 2", completed: true },
@@ -16,13 +17,14 @@ app.controller("TaskController", function ($scope, $filter) {
     // $scope.removeTask = function (index) {
     //     $scope.tasks.splice(index, 1);
     // };
+
     $scope.modalActive = false;
     $scope.showCompletedOnly = false;
     $scope.incompletedOnly = false;
     $scope.todayOnly = false;
     $scope.today = new Date().toLocaleDateString();
 
-    $scope.tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    $scope.tasks = TaskService.getTasks() || [];
 
     $scope.taskInput = {
         id: "",
@@ -60,30 +62,27 @@ app.controller("TaskController", function ($scope, $filter) {
     $scope.handleSubmitAddTask = () => {
         const title = $scope.taskInput.title
         const date = $scope.taskInput.date
+
+        TaskService.addTask(title, date);
+        $scope.tasks = TaskService.getTasks();
+
         if (!title || !date) {
             alert("Preencha o campo de tarefa!");
             return;
         }
-        $scope.tasks.push({
-            id: Math.random().toString(36).substring(2, 9),
-            title: title,
-            date: date,
-            checked: false,
-        });
-
-        localStorage.setItem("tasks", JSON.stringify($scope.tasks));
 
         $scope.toggleModal();
         $scope.taskinputput = "";
         $scope.taskInput.date = "";
     }
     $scope.toggleCheckedTask = () => {
-
-        localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        task.checked = !task.checked;
+        TaskService.toggleCheck(task.id, task.checked);
+        $scope.tasks = TaskService.getTasks();
     }
 
     $scope.deleteTask = (currentTask) => {
-        $scope.tasks = $scope.tasks.filter((task) => task.id !== currentTask.id);
-        localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        TaskService.removeTask(currentTask.id);
+        $scope.tasks = TaskService.getTasks();
     }
 });

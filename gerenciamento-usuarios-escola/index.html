@@ -11,8 +11,8 @@
 <body ng-controller="AppController">
     <h1 ng-bind="mensagem"></h1>
     <div>
-        <p>Nome: {{ usuario.nome }}</p>
-        <p>Tipo: {{ usuario.tipo }}</p>
+        <p><span ng-bind="usuario.nome"></span></p>
+        <p><span ng-bind="usuario.tipo"></span></p>
     </div>
     <div>
         <img ng-if="usuario.tipo === 'Aluno'" src="assets/images/aluno.png" alt="Imagem do Aluno">
@@ -20,27 +20,45 @@
     </div>
     <div>
         <label for="filtro">Buscar:</label>
-        <input id="filtro" type="text" ng-model="filtro" placeholder="Digite um nome...">
+        <input id="filtro" type="text" ng-model="filtro" ng-change="atualizarLista()" placeholder="Digite um nome...">
         <label for="filtroTipo">Filtrar por tipo:</label>
-        <select id="filtroTipo" ng-model="filtroTipo">
+        <select id="filtroTipo" ng-model="filtroTipo" ng-change="atualizarLista()">
             <option value="">Todos</option>
             <option value="Aluno">Aluno</option>
             <option value="Professor">Professor</option>
         </select>
     </div>
-    <div ng-controller="UserListController">
+    <div>
+        <h2>Adicionar Novo Usuário</h2>
+        <form ng-submit="adicionarUsuario()">
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" ng-model="novoUsuario.nome" placeholder="Digite o nome" required>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" ng-model="novoUsuario.tipo" required>
+                <option value="">Selecione</option>
+                <option value="Aluno">Aluno</option>
+                <option value="Professor">Professor</option>
+            </select>
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+    <div>
         <h2>Lista de Usuários</h2>
         <ul>
-            <li ng-repeat="usuario in usuarios | filter:filtro | filter:{ tipo: filtroTipo }">
-                Nome: {{ usuario.nome | uppercase }} - Tipo: {{ usuario.tipo }} - Data de Cadastro: {{
-                usuario.dataCadastro | date:'dd/MM/yyyy' }}
+            <li ng-repeat="usuario in usuarios">
+                <span ng-bind="usuario.nome | uppercase"></span> -
+                <span ng-bind="usuario.tipo"></span> -
+                <span ng-bind="usuario.dataCadastro | date:'dd/MM/yyyy'"></span>
+                <button ng-click="removerUsuario($index)">Remover</button>
             </li>
         </ul>
-        <p>Total de Alunos: {{ (usuarios | filter:{tipo:'Aluno'}).length }}</p>
-        <p>Total de Professores: {{ (usuarios | filter:{tipo:'Professor'}).length }}</p>
+        <p>Total de Alunos: <span ng-bind="(usuarios | filter:{tipo:'Aluno'}).length"></span></p>
+        <p>Total de Professores: <span ng-bind="(usuarios | filter:{tipo:'Professor'}).length"></span></p>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/usuario.service.js" defer></script>
+    <script src="assets/js/usuario.controller.js" defer></script>
 </body>
 
 </html>
