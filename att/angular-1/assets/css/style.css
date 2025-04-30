@@ -270,6 +270,14 @@ button {
     align-items: center;
     text-align: center;
     margin-top: 0.8rem;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.modal .send:disabled {
+    opacity: 0.5;
+    background-color: var(--medium-color);
+    cursor: not-allowed;
 }
 
 .modal .close {

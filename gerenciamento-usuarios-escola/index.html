@@ -30,17 +30,40 @@
     </div>
     <div>
         <h2>Adicionar Novo Usuário</h2>
-        <form ng-submit="adicionarUsuario()">
+        <form name="usuarioForm" ng-submit="adicionarUsuario(usuarioForm)" novalidate>
             <label for="nome">Nome:</label>
-            <input id="nome" type="text" ng-model="novoUsuario.nome" placeholder="Digite o nome" required>
+            <input id="nome" type="text" name="nome" ng-model="novoUsuario.nome" required>
+            <span ng-show="usuarioForm.nome.$touched && usuarioForm.nome.$error.required" style="color: red;">
+                Nome é obrigatório.
+            </span>
+
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" ng-model="novoUsuario.email" required>
+            <span ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.required" style="color: red;">
+                Email é obrigatório.
+            </span>
+            <span ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.email" style="color: red;">
+                Email inválido.
+            </span>
+            <span ng-show="usuarioForm.email.$touched && !isEmailValid(novoUsuario.email)" style="color: red;">
+                O email deve terminar com ".com".
+            </span>
+
             <label for="tipo">Tipo:</label>
-            <select id="tipo" ng-model="novoUsuario.tipo" required>
+            <select id="tipo" name="tipo" ng-model="novoUsuario.tipo" required>
                 <option value="">Selecione</option>
                 <option value="Aluno">Aluno</option>
                 <option value="Professor">Professor</option>
             </select>
-            <button type="submit">Adicionar</button>
+            <span ng-show="usuarioForm.tipo.$touched && usuarioForm.tipo.$error.required" style="color: red;">
+                Tipo é obrigatório.
+            </span>
+
+            <button type="submit" ng-disabled="usuarioForm.$invalid || salvando">Adicionar</button>
+            <span ng-show="salvando">Carregando...</span>
         </form>
+        <p style="color: green;" ng-bind="mensagemSucesso"></p>
+        <p style="color: red;" ng-bind="mensagemErro"></p>
     </div>
     <div>
         <h2>Lista de Usuários</h2>

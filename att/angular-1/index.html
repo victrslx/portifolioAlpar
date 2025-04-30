@@ -70,12 +70,15 @@
                     close
                 </span></button>
             <h2>Adicionar tarefa</h2>
-            <form ng-submit="handleSubmitAddTask()" novalidate>
+            <form name="form" ng-submit="handleSubmitAddTask()" novalidate>
                 <label for="task-name">Nome da tarefa</label>
-                <input type="text" id="task-name" placeholder="Digite o nome da tarefa" ng-model="taskInput.title">
+                <input type="text" name="title" id="task-name" placeholder="Digite o nome da tarefa"
+                    ng-model="taskInput.title" ng-required="true" ng-minlength="1"
+                    ng-style="validate(form.title.$error, form.title.$touched)">
                 <label for="task-date">Data de entrega</label>
-                <input type="date" id="task-date" required ng-model="taskInput.date" required>
-                <button class="send" type="submit">Adicionar</button>
+                <input type="date" id="task-date" required ng-model="taskInput.date" ng-required="true"
+                    ng-style="validate(form.title.$error, form.title.$touched)">
+                <button class="send" type="submit" ng-disabled="!form.$valid">Adicionar</button>
             </form>
         </div>
     </aside>
