@@ -13,3 +13,93 @@
 </body>
 
 </html>
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en" ng-app="schoolApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Usuários</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body ng-controller="AppController">
+    <h1 ng-bind="mensagem"></h1>
+    <div>
+        <p><span ng-bind="usuario.nome"></span></p>
+        <p><span ng-bind="usuario.tipo"></span></p>
+    </div>
+    <div>
+        <img ng-if="usuario.tipo === 'Aluno'" src="assets/images/aluno.png" alt="Imagem do Aluno">
+        <img ng-if="usuario.tipo === 'Professor'" src="assets/images/professor.png" alt="Imagem do Professor">
+    </div>
+    <div>
+        <label for="filtro">Buscar:</label>
+        <input id="filtro" type="text" ng-model="filtro" ng-change="atualizarLista()" placeholder="Digite um nome...">
+        <label for="filtroTipo">Filtrar por tipo:</label>
+        <select id="filtroTipo" ng-model="filtroTipo" ng-change="atualizarLista()">
+            <option value="">Todos</option>
+            <option value="Aluno(a)">Aluno</option>
+            <option value="Professor(A)">Professor</option>
+        </select>
+    </div>
+    <div>
+        <h2>Adicionar Novo Usuário</h2>
+        <form name="usuarioForm" ng-submit="adicionarUsuario(usuarioForm)" novalidate>
+            <label for="nome">Nome:</label>
+            <input id="nome" type="text" name="nome" ng-model="novoUsuario.nome" required>
+            <span ng-show="usuarioForm.nome.$touched && usuarioForm.nome.$error.required" style="color: red;">
+                Nome é obrigatório.
+            </span>
+
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" ng-model="novoUsuario.email" required>
+            <span ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.required" style="color: red;">
+                Email é obrigatório.
+            </span>
+            <span ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.email" style="color: red;">
+                Email inválido.
+            </span>
+            <span ng-show="usuarioForm.email.$touched && !isEmailValid(novoUsuario.email)" style="color: red;">
+                O email deve terminar com ".com".
+            </span>
+
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo" ng-model="novoUsuario.tipo" required>
+                <option value="">Selecione</option>
+                <option value="Aluno(a)">Aluno</option>
+                <option value="Professor(a)">Professor</option>
+            </select>
+            <span ng-show="usuarioForm.tipo.$touched && usuarioForm.tipo.$error.required" style="color: red;">
+                Tipo é obrigatório.
+            </span>
+
+            <button type="submit" ng-disabled="usuarioForm.$invalid || salvando">Adicionar</button>
+            <span ng-show="salvando">Carregando...</span>
+        </form>
+        <p style="color: green;" ng-bind="mensagemSucesso"></p>
+        <p style="color: red;" ng-bind="mensagemErro"></p>
+    </div>
+    <div>
+        <h2>Lista de Usuários</h2>
+        <ul>
+            <li ng-repeat="usuario in usuarios">
+                <span ng-bind="usuario.nome | uppercase"></span> -
+                <span ng-bind="usuario.tipo"></span> -
+                <span ng-bind="usuario.dataCadastro | date:'dd/MM/yyyy'"></span> -
+                <span ng-bind="usuario.email"></span> -
+                <button ng-click="removerUsuario($index)">Remover</button>
+            </li>
+        </ul>
+        <p>Total de Alunos: <span ng-bind="(usuarios | filter:{tipo:'Aluno'}).length"></span></p>
+        <p>Total de Professores: <span ng-bind="(usuarios | filter:{tipo:'Professor'}).length"></span></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="assets/js/usuario.service.js" defer></script>
+    <script src="assets/js/usuario.controller.js" defer></script>
+</body>
+
+</html> -->

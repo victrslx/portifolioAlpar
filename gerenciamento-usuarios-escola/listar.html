@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="schoolApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Cadastro Escolar</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+</head>
+
+<body ng-controller="AppController as ctrl">
+
+    <div class="containers">
+        <header>
+            <h2>Sistema de cadastro escolar</h2>
+            <h1>Lista</h1>
+            <div class="profile">
+                <h2>{{usuario.nome}}</h2>
+                <img ng-if="usuario.tipo === 'Aluno(a)'" src="assets/img/aluno.png" alt="Aluno">
+                <img ng-if="usuario.tipo === 'Professor(a)'" src="assets/img/professor.png" alt="Professor">
+            </div>
+        </header>
+
+        <aside>
+            <h2>Menu</h2>
+            <ul>
+                <li><a class="menu-list" href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                </li>
+                <li><a class="menu-list active" href="listar.html"><i class="fa fa-list" aria-hidden="true"></i>Listar
+                        Usuários</a></li>
+                <li><a class="menu-list" href="add.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Adicionar
+                        Usuário</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main>
+            <h2 class="titulo-lista">Lista de Usuários</h2>
+
+            <div class="filtros mb-4">
+                <input type="text" class="form-control filtro-nome" placeholder="Digite um nome..." ng-model="filtro"
+                    ng-change="atualizarLista()">
+                <select class="form-select filtro-tipo" ng-model="filtroTipo" ng-change="atualizarLista()">
+                    <option value="">Tipo</option>
+                    <option value="Aluno(a)">Aluno</option>
+                    <option value="Professor(a)">Professor</option>
+                </select>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table tabela-usuarios align-middle">
+                    <thead>
+                        <tr>
+                            <th>RM/RE</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Tipo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in usuarios track by user.rm">
+                            <td>{{ user.rm }}</td>
+                            <td>{{ user.nome }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.tipo }}</td>
+                            <td>{{ user.dataCadastro | date : 'dd/MM/yyyy' }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-editar" ng-click="editarUsuario(user)">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-excluir" ng-click="removerUsuario($index)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="totais">
+                <div class="total-alunos">
+                    Total de Alunos: <span ng-bind="(usuarios | filter:{tipo:'Aluno'}).length"></span>
+                </div>
+                <div class="total-professores">
+                    Total de Professores: <span ng-bind="(usuarios | filter:{tipo:'Professor'}).length"></span>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/usuario.service.js" defer></script>
+    <script src="./assets/js/usuario.controller.js" defer></script>
+
+</body>
+
+</html>

@@ -1,87 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="schoolApp">
+<html lang="pt-br" ng-app="schoolApp">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Usuários</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Sistema de Cadastro Escolar</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 </head>
 
-<body ng-controller="AppController">
-    <h1 ng-bind="mensagem"></h1>
-    <div>
-        <p><span ng-bind="usuario.nome"></span></p>
-        <p><span ng-bind="usuario.tipo"></span></p>
-    </div>
-    <div>
-        <img ng-if="usuario.tipo === 'Aluno'" src="assets/images/aluno.png" alt="Imagem do Aluno">
-        <img ng-if="usuario.tipo === 'Professor'" src="assets/images/professor.png" alt="Imagem do Professor">
-    </div>
-    <div>
-        <label for="filtro">Buscar:</label>
-        <input id="filtro" type="text" ng-model="filtro" ng-change="atualizarLista()" placeholder="Digite um nome...">
-        <label for="filtroTipo">Filtrar por tipo:</label>
-        <select id="filtroTipo" ng-model="filtroTipo" ng-change="atualizarLista()">
-            <option value="">Todos</option>
-            <option value="Aluno">Aluno</option>
-            <option value="Professor">Professor</option>
-        </select>
-    </div>
-    <div>
-        <h2>Adicionar Novo Usuário</h2>
-        <form name="usuarioForm" ng-submit="adicionarUsuario(usuarioForm)" novalidate>
-            <label for="nome">Nome:</label>
-            <input id="nome" type="text" name="nome" ng-model="novoUsuario.nome" required>
-            <span ng-show="usuarioForm.nome.$touched && usuarioForm.nome.$error.required" style="color: red;">
-                Nome é obrigatório.
-            </span>
+<body ng-controller="AppController as ctrl">
 
-            <label for="email">Email:</label>
-            <input id="email" type="email" name="email" ng-model="novoUsuario.email" required>
-            <span ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.required" style="color: red;">
-                Email é obrigatório.
-            </span>
-            <span ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.email" style="color: red;">
-                Email inválido.
-            </span>
-            <span ng-show="usuarioForm.email.$touched && !isEmailValid(novoUsuario.email)" style="color: red;">
-                O email deve terminar com ".com".
-            </span>
+    <div class="containers">
+        <header>
+            <h2>Sistema de cadastro escolar</h2>
+            <h1>Home</h1>
+            <div class="profile">
+                <h2>{{usuario.nome}}</h2>
+                <img ng-if="usuario.tipo === 'Aluno(a)'" src="assets/img/aluno.png" alt="Aluno">
+                <img ng-if="usuario.tipo === 'Professor(a)'" src="assets/img/professor.png" alt="Professor">
+            </div>
+        </header>
 
-            <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo" ng-model="novoUsuario.tipo" required>
-                <option value="">Selecione</option>
-                <option value="Aluno">Aluno</option>
-                <option value="Professor">Professor</option>
-            </select>
-            <span ng-show="usuarioForm.tipo.$touched && usuarioForm.tipo.$error.required" style="color: red;">
-                Tipo é obrigatório.
-            </span>
+        <aside>
+            <h2>Menu</h2>
+            <ul>
+                <li><a class="menu-list active" href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                </li>
+                <li><a class="menu-list" href="listar.html"><i class="fa fa-list" aria-hidden="true"></i>Listar
+                        Usuários</a></li>
+                <li><a class="menu-list" href="add.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Adicionar
+                        Usuário</a>
+                </li>
+            </ul>
+        </aside>
 
-            <button type="submit" ng-disabled="usuarioForm.$invalid || salvando">Adicionar</button>
-            <span ng-show="salvando">Carregando...</span>
-        </form>
-        <p style="color: green;" ng-bind="mensagemSucesso"></p>
-        <p style="color: red;" ng-bind="mensagemErro"></p>
+        <main>
+            <h2>Bem-vindo {{usuario.tipo}} {{usuario.nome}}</h2>
+            <p class="clock">{{horaAtual}}</p>
+            <p class="stats">Foram cadastrados {{usuariosHoje}} novos usuários hoje</p>
+
+            <div class="chart-container">
+                <canvas id="cadastrosChart"></canvas>
+            </div>
+        </main>
     </div>
-    <div>
-        <h2>Lista de Usuários</h2>
-        <ul>
-            <li ng-repeat="usuario in usuarios">
-                <span ng-bind="usuario.nome | uppercase"></span> -
-                <span ng-bind="usuario.tipo"></span> -
-                <span ng-bind="usuario.dataCadastro | date:'dd/MM/yyyy'"></span>
-                <button ng-click="removerUsuario($index)">Remover</button>
-            </li>
-        </ul>
-        <p>Total de Alunos: <span ng-bind="(usuarios | filter:{tipo:'Aluno'}).length"></span></p>
-        <p>Total de Professores: <span ng-bind="(usuarios | filter:{tipo:'Professor'}).length"></span></p>
-    </div>
+    <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/usuario.service.js" defer></script>
+    <script src="./assets/js/usuario.controller.js" defer></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="assets/js/usuario.service.js" defer></script>
-    <script src="assets/js/usuario.controller.js" defer></script>
 </body>
 
 </html>

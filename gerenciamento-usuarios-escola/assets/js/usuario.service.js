@@ -3,15 +3,23 @@ window.app = window.app || angular.module('schoolApp', []);
 app.service('UsuarioService', function () {
     const STORAGE_KEY = 'usuarios';
     let _usuarios = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
-        { nome: "João", tipo: "Aluno", dataCadastro: new Date() },
-        { nome: "Maria", tipo: "Professor", dataCadastro: new Date() },
-        { nome: "Carlos", tipo: "Aluno", dataCadastro: new Date() },
-        { nome: "Ana", tipo: "Professor", dataCadastro: new Date() },
-        { nome: "Pedro", tipo: "Aluno", dataCadastro: new Date() }
+        { nome: "João", tipo: "Aluno(a)", dataCadastro: new Date(), email: "joao@gmail.com", rm: 86641 },
+        { nome: "Maria", tipo: "Professor(a)", dataCadastro: new Date(), email: "maria@gmail.com", rm: 12345 },
+        { nome: "Carlos", tipo: "Aluno(a)", dataCadastro: new Date(), email: "carlos@gmail.com", rm: 54321 },
+        { nome: "Ana", tipo: "Professor(a)", dataCadastro: new Date(), email: "ana@gmail.com", rm: 67890 },
+        { nome: "Pedro", tipo: "Aluno(a)", dataCadastro: new Date(), email: "pedro@gmail.com", rm: 98765 }
     ];
 
     function saveToStorage() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(_usuarios));
+    }
+
+    function gerarCodigo() {
+        let codigo;
+        do {
+            codigo = Math.floor(Math.random() * Math.pow(10, 5)) + 1;
+        } while (_usuarios.some(usuario => usuario.rm === codigo));
+        return codigo;
     }
 
     return {
@@ -24,6 +32,7 @@ app.service('UsuarioService', function () {
         },
         adicionar: function (usuario) {
             usuario.dataCadastro = new Date();
+            usuario.rm = gerarCodigo();
             _usuarios.push(usuario);
             saveToStorage();
         },
@@ -44,6 +53,7 @@ app.service('UsuarioService', function () {
                     }
                 }, 2000);
             });
-        }
+        },
+        gerarCodigo: gerarCodigo
     };
 });

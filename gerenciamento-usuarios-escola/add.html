@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="schoolApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Cadastro Escolar</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="AppController as ctrl">
+
+    <div class="containers">
+        <header>
+            <h2>Sistema de cadastro escolar</h2>
+            <h1>Registro</h1>
+            <div class="profile">
+                <h2>{{usuario.nome}}</h2>
+                <img ng-if="usuario.tipo === 'Aluno(a)'" src="assets/img/aluno.png" alt="Aluno">
+                <img ng-if="usuario.tipo === 'Professor(a)'" src="assets/img/professor.png" alt="Professor">
+            </div>
+        </header>
+
+        <aside>
+            <h2>Menu</h2>
+            <ul>
+                <li><a class="menu-list" href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                </li>
+                <li><a class="menu-list" href="listar.html"><i class="fa fa-list" aria-hidden="true"></i>Listar
+                        Usuários</a></li>
+                <li><a class="menu-list active" href="add.html"><i class="fa fa-user-plus"
+                            aria-hidden="true"></i>Adicionar
+                        Usuário</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main>
+            <h2 class="titulo-principal">Adicionar novo usuário</h2>
+
+            <div class="formulario-container">
+                <form name="usuarioForm" ng-submit="adicionarUsuario(usuarioForm)" novalidate>
+
+                    <h3 class="titulo-interno">Preencha as informações abaixo</h3>
+                    <p class="subtitulo-interno">RM OU RE é gerado automaticamente</p>
+
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input id="nome" type="text" name="nome" ng-model="novoUsuario.nome" placeholder="Nome do Aluno"
+                            required>
+                        <span class="erro" ng-show="usuarioForm.nome.$touched && usuarioForm.nome.$error.required">
+                            Nome é obrigatório.
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email" ng-model="novoUsuario.email" placeholder="Email"
+                            required>
+                        <span class="erro" ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.required">
+                            Email é obrigatório.
+                        </span>
+                        <span class="erro" ng-show="usuarioForm.email.$touched && usuarioForm.email.$error.email">
+                            Email inválido.
+                        </span>
+                        <span class="erro" ng-show="usuarioForm.email.$touched && !isEmailValid(novoUsuario.email)">
+                            O email deve terminar com ".com".
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                        <select id="tipo" name="tipo" ng-model="novoUsuario.tipo" required>
+                            <option value="">Selecione</option>
+                            <option value="Aluno(a)">Aluno(a)</option>
+                            <option value="Professor(a)">Professor(a)</option>
+                        </select>
+                        <span class="erro" ng-show="usuarioForm.tipo.$touched && usuarioForm.tipo.$error.required">
+                            Tipo é obrigatório.
+                        </span>
+                    </div>
+
+                    <div class="form-group rm-re">
+                        RM / RE: <span class="codigo-rm">{{ rmAtual }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" ng-disabled="usuarioForm.$invalid || salvando">Adicionar</button>
+                        <span class="carregando" ng-show="salvando">Carregando...</span>
+                    </div>
+
+                    <div class="mensagem">
+                        <p class="sucesso" ng-bind="mensagemSucesso"></p>
+                        <p class="erro" ng-bind="mensagemErro"></p>
+                    </div>
+
+                </form>
+            </div>
+        </main>
+
+    </div>
+    <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/usuario.service.js" defer></script>
+    <script src="./assets/js/usuario.controller.js" defer></script>
+
+</body>
+
+</html>
