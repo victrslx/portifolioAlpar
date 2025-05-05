@@ -57,7 +57,7 @@ app.controller('AppController', function ($scope, UsuarioService, $interval) {
         return email && email.endsWith('.com');
     };
 
-    $scope.usuario = UsuarioService.listar()[3] || { nome: "Usuário", tipo: "Aluno" };
+    $scope.usuario = UsuarioService.listar()[1] || { nome: "Usuário", tipo: "Aluno" };
     $scope.horaAtual = "";
     $scope.usuariosHoje = 0;
 

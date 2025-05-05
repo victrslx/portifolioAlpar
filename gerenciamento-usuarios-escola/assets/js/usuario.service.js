@@ -4,7 +4,7 @@ app.service('UsuarioService', function () {
     const STORAGE_KEY = 'usuarios';
     let _usuarios = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
         { nome: "João", tipo: "Aluno(a)", dataCadastro: new Date(), email: "joao@gmail.com", rm: 86641 },
-        { nome: "Maria", tipo: "Professor(a)", dataCadastro: new Date(), email: "maria@gmail.com", rm: 12345 },
+        { nome: "Felipe", tipo: "Professor(a)", dataCadastro: new Date(), email: "felipe@gmail.com", rm: 12345 },
         { nome: "Carlos", tipo: "Aluno(a)", dataCadastro: new Date(), email: "carlos@gmail.com", rm: 54321 },
         { nome: "Ana", tipo: "Professor(a)", dataCadastro: new Date(), email: "ana@gmail.com", rm: 67890 },
         { nome: "Pedro", tipo: "Aluno(a)", dataCadastro: new Date(), email: "pedro@gmail.com", rm: 98765 }

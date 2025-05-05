@@ -47,7 +47,6 @@ class Professor extends Usuario {
     }
 }
 
-// 🛠 Restaura instâncias reais
 function restaurarUsuarios(dados) {
     return dados.map(u => {
         if (u._turma) return new Aluno(u._name, u._email, u._password, u._turma);
@@ -55,22 +54,21 @@ function restaurarUsuarios(dados) {
         return new Usuario(u._name, u._email, u._password);
     });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
-    // 🧠 Inicialização do sessionStorage com usuários padrão (se vazio)
+
     if (!sessionStorage.getItem("usuarios")) {
         const usuariosIniciais = [
-            new Aluno("João", "joao@email.com", "1234", "a"),
-            new Professor("Maria", "maria@email.com", "abcd", "Matemática"),
+            new Aluno("João", "joao@email.com", "1234", "A"),
+            new Professor("Maria", "maria@email.com", "abcd", "Matemática")
         ];
         sessionStorage.setItem("usuarios", JSON.stringify(usuariosIniciais));
         location.reload();
     }
 
-    // 📥 Carrega os usuários da sessão
-    const dadosSessao = JSON.parse(sessionStorage.getItem("usuarios"));
-    const usuarios = restaurarUsuarios(dadosSessao || []);
+    const dadosSessao = JSON.parse(sessionStorage.getItem("usuarios")) || [];
+    const usuarios = restaurarUsuarios(dadosSessao);
 
-    console.log("🔥 Usuários carregados (alunos e professores):", usuarios);
 
     function exibirPopup(mensagem, callback) {
         const popup = document.createElement("div");
@@ -78,21 +76,21 @@ document.addEventListener("DOMContentLoaded", () => {
         popup.id = "popupModal";
         popup.tabIndex = "-1";
         popup.innerHTML = `
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Mensagem</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>${mensagem}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Mensagem</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>${mensagem}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
         document.body.appendChild(popup);
 
         const modal = new bootstrap.Modal(popup);
@@ -100,27 +98,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
         popup.addEventListener("hidden.bs.modal", () => {
             document.body.removeChild(popup);
-            if (callback) callback(); // Executa o callback após o fechamento do popup
+            if (callback) callback();
         });
     }
 
-    // 🔐 LOGIN
+
+    const themeToggle = document.getElementById("themeToggle");
+    const themeBody = document.getElementById("themeBody");
+    const themeCard = document.getElementById("themeCard");
+
+    themeToggle.addEventListener("click", () => {
+        const isDark = themeBody.classList.toggle("bg-dark");
+        themeBody.classList.toggle("text-white", isDark);
+        themeCard.classList.toggle("bg-dark", isDark);
+        themeToggle.textContent = isDark ? "Modo Claro" : "Modo Escuro";
+    });
+
     const loginForm = document.getElementById("loginForm");
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
+            const emailField = document.getElementById("email");
+            const passwordField = document.getElementById("password");
 
-            console.log("🔥 Tentativa de login - Email:", email, "Senha:", password);
+            const email = emailField.value.trim();
+            const password = passwordField.value.trim();
 
-            const user = usuarios.find(u => u.email === email && u.password === password);
-            if (user) {
+            const usuariosCadastrados = JSON.parse(sessionStorage.getItem("usuarios")) || [];
+            const usuariosRestaurados = restaurarUsuarios(usuariosCadastrados);
+
+            const user = usuariosRestaurados.find(u => u.email === email && u.password === password);
+
+            let isValid = true;
+
+            if (!email || !emailField.checkValidity() || !user) {
+                emailField.classList.add("is-invalid");
+                emailField.classList.remove("is-valid");
+                isValid = false;
+            } else {
+                emailField.classList.add("is-valid");
+                emailField.classList.remove("is-invalid");
+            }
+
+            if (!password || (user && user.password !== password) || email !== user.email) {
+                passwordField.classList.add("is-invalid");
+                passwordField.classList.remove("is-valid");
+                isValid = false;
+            } else {
+                passwordField.classList.add("is-valid");
+                passwordField.classList.remove("is-invalid");
+            }
+
+            if (isValid && user) {
                 console.log("🔥 Login bem-sucedido:", user);
                 localStorage.setItem("usuarioLogado", JSON.stringify(user));
-                exibirPopup("Login realizado com sucesso!", () => {
-                    window.location.href = "index.html";
-                });
+                window.location.href = "index.html";
             } else {
                 console.log("🔥 Login falhou. Credenciais inválidas.");
                 exibirPopup("Credenciais inválidas.");
@@ -128,50 +160,100 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 📝 REGISTRO
+
     const registerForm = document.getElementById("registerForm");
-    if (registerForm) {
-        registerForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const tipo = document.getElementById("tipo").value;
+    const extraFields = document.getElementById("extraFields");
 
-            console.log("🔥 Dados do registro - Nome:", name, "Email:", email, "Senha:", password, "Tipo:", tipo);
-
-            if (usuarios.some(u => u.email === email)) {
-                console.log("🔥 Registro falhou. E-mail já cadastrado:", email);
-                exibirPopup("E-mail já cadastrado.");
-                return;
-            }
-
-            let novoUsuario = null;
-            if (tipo === "aluno") {
-                const turma = document.getElementById("turma").value.trim();
-                if (!turma) return exibirPopup("Preencha o campo Turma.");
-                novoUsuario = new Aluno(name, email, password, turma);
-                console.log("🔥 Novo aluno cadastrado:", novoUsuario);
-            } else if (tipo === "professor") {
-                const materias = document.getElementById("materias").value.trim();
-                if (!materias) return exibirPopup("Preencha o campo Matérias.");
-                novoUsuario = new Professor(name, email, password, materias);
-                console.log("🔥 Novo professor cadastrado:", novoUsuario);
-            } else {
-                return exibirPopup("Tipo de usuário inválido.");
-            }
-
-            usuarios.push(novoUsuario);
-            sessionStorage.setItem("usuarios", JSON.stringify(usuarios));
-            console.log("🔥 Usuários após registro:", usuarios);
-
-            exibirPopup("Usuário registrado com sucesso!", () => {
-                window.location.href = "login.html";
-            });
+    function applyValidationListeners() {
+        registerForm.querySelectorAll("input, select").forEach(field => {
+            field.addEventListener("input", () => validateField(field));
+            field.addEventListener("blur", () => validateField(field));
         });
     }
 
-    // 👤 PERFIL
+    function validateField(field) {
+        if (!field.value.trim() || !field.checkValidity()) {
+            field.classList.add("is-invalid");
+            field.classList.remove("is-valid");
+        } else {
+            field.classList.add("is-valid");
+            field.classList.remove("is-invalid");
+        }
+    }
+
+    document.getElementById("tipo").addEventListener("change", function () {
+        extraFields.innerHTML = "";
+
+        if (this.value === "aluno") {
+            extraFields.innerHTML = `
+                 <div class="mb-3">
+                     <label for="turma" class="form-label">Turma:</label>
+                     <input type="text" id="turma" name="turma" class="form-control" required>
+                     <div class="invalid-feedback">Por favor, insira a turma.</div>
+                 </div>
+             `;
+        } else if (this.value === "professor") {
+            extraFields.innerHTML = `
+                 <div class="mb-3">
+                     <label for="materias" class="form-label">Matérias:</label>
+                     <input type="text" id="materias" name="materias" class="form-control" required>
+                     <div class="invalid-feedback">Por favor, insira as matérias.</div>
+                 </div>
+             `;
+        }
+
+        applyValidationListeners();
+    });
+
+    registerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let isValid = true;
+
+        const fields = registerForm.querySelectorAll("input, select");
+        fields.forEach(field => {
+            validateField(field);
+            if (!field.checkValidity() || !field.value.trim()) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            console.log("❌ Formulário inválido.");
+            return;
+        }
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const tipo = document.getElementById("tipo").value;
+
+        if (usuarios.some(u => u.email === email)) {
+            exibirPopup("E-mail já cadastrado.");
+            return;
+        }
+
+        let novoUsuario = null;
+        if (tipo === "aluno") {
+            const turma = document.getElementById("turma").value.trim();
+            novoUsuario = new Aluno(name, email, password, turma);
+        } else if (tipo === "professor") {
+            const materias = document.getElementById("materias").value.trim();
+            novoUsuario = new Professor(name, email, password, materias);
+        } else {
+            exibirPopup("Tipo de usuário inválido.");
+            return;
+        }
+
+        usuarios.push(novoUsuario);
+        sessionStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+        exibirPopup("Usuário registrado com sucesso!", () => {
+            window.location.href = "login.html";
+        });
+    });
+
+    applyValidationListeners();
+
     const perfilContainer = document.getElementById("perfilContainer");
     if (perfilContainer) {
         const dados = localStorage.getItem("usuarioLogado");
@@ -192,7 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 🔥 Log ao retornar para a tela de login
     if (loginForm) {
         console.log("🔥 Dados atuais no sistema (usuários):", usuarios);
     }

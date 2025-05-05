@@ -34,48 +34,6 @@
         </div>
         <button id="themeToggle" class="btn btn-secondary position-fixed bottom-0 end-0 m-3">Modo Escuro</button>
     </div>
-
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            const emailField = document.getElementById("email");
-            const passwordField = document.getElementById("password");
-
-            // Carregar usuários do sessionStorage
-            const usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
-            const user = usuarios.find(u => u._email === emailField.value.trim());
-
-            // Validação do campo de e-mail
-            if (!emailField.value || !emailField.checkValidity() || !user) {
-                emailField.classList.add("is-invalid");
-                emailField.classList.remove("is-valid");
-            } else {
-                emailField.classList.add("is-valid");
-                emailField.classList.remove("is-invalid");
-            }
-
-            // Validação do campo de senha
-            if (!passwordField.value || (user && user._password !== passwordField.value.trim()) || emailField.value !== user._email) {
-                passwordField.classList.add("is-invalid");
-                passwordField.classList.remove("is-valid");
-            } else {
-                passwordField.classList.add("is-valid");
-                passwordField.classList.remove("is-invalid");
-            }
-        });
-
-        const themeToggle = document.getElementById("themeToggle");
-        const themeBody = document.getElementById("themeBody");
-        const themeCard = document.getElementById("themeCard");
-
-        themeToggle.addEventListener("click", () => {
-            const isDark = themeBody.classList.toggle("bg-dark");
-            themeBody.classList.toggle("text-white", isDark);
-            themeCard.classList.toggle("bg-dark", isDark);
-
-            themeToggle.textContent = isDark ? "Modo Claro" : "Modo Escuro";
-        });
-    </script>
 </body>
 
 </html>
